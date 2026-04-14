@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Contacto - Turismo Jujuy</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header class="encabezado-principal">
+        <div class="logo">
+            <h1>TurismoWeb</h1>
+        </div>
+
+        <nav class="menu-navegacion">
+            <ul class="lista-menu">
+                <li class="item-menu"><a href="index.html">Inicio</a></li>
+                <li class="item-menu"><a href="destinos.html">Destinos</a></li>
+                <li class="item-menu"><a href="agencias.html">Agencias</a></li>
+                <li class="item-menu"><a href="precios.html">Precios</a></li>
+                <li class="item-menu"><a href="blog.html">Blog</a></li>
+                <li class="item-menu"><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contenedor-contacto">
+        <h2 class="titulo-seccion">Envíanos tu consulta</h2>
+
+        <div class="caja-formulario">
+
+            <form class="formulario-avanzado" action="#modal-exito">
+
+                <div class="grupo-input">
+                    <label for="nombre">Nombre Completo:</label>
+                    <input type="text" id="nombre" name="nombre" required pattern="[A-Za-z\s]+"
+                        placeholder="Ej: María Gómez">
+                </div>
+
+                <div class="grupo-input">
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email" name="email" required placeholder="tu@correo.com">
+                </div>
+
+                <div class="grupo-input">
+                    <label for="mensaje">Tu Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Escribe aquí..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-enviar">
+                    <span class="texto-btn">Enviar Mensaje</span>
+                    <div class="spinner"></div>
+                </button>
+
+            </form>
+        </div>
+
+        <div id="modal-exito" class="modal-css">
+            <div class="modal-contenido">
+                <h2>¡Mensaje Enviado! ✈️</h2>
+                <p>Gracias por contactarnos. Te responderemos a la brevedad.</p>
+                <a href="#" class="btn-cerrar-modal">Cerrar</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="pie-pagina">
+
+        <div class="contenido-footer">
+
+            <div class="columna-footer">
+                <h3>Suscríbete al Newsletter</h3>
+                <form class="formulario-newsletter">
+                    <input type="email" placeholder="Ingresa tu correo" required>
+                    <button type="submit">Suscribirme</button>
+                </form>
+            </div>
+
+            <div class="columna-footer">
+                <h3>Síguenos</h3>
+                <ul class="redes-sociales">
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Twitter</a></li>
+                </ul>
+            </div>
+
+            <div class="columna-footer">
+                <h3>Nuestra Ubicación</h3>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115865.71714909831!2d-65.372545!3d-24.1832629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941b08e2f80c6533%3A0xcb1b51de9580a8eb!2sSan%20Salvador%20de%20Jujuy%2C%20Jujuy!5e0!3m2!1ses-419!2sar!4v1700000000000!5m2!1ses-419!2sar"
+                    width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+
+        </div>
+
+        <div class="derechos-autor">
+            <p>&copy; 2026 TurismoWeb Jujuy - APU. Todos los derechos reservados.</p>
+        </div>
+
+    </footer>
+
+</body>
+
+</html>

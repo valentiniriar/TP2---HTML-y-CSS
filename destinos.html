@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Destinos - Turismo Jujuy</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header class="encabezado-principal">
+        <div class="logo">
+            <h1>TurismoWeb</h1>
+        </div>
+
+        <nav class="menu-navegacion">
+            <ul class="lista-menu">
+                <li class="item-menu"><a href="index.html">Inicio</a></li>
+                <li class="item-menu"><a href="destinos.html">Destinos</a></li>
+                <li class="item-menu"><a href="agencias.html">Agencias</a></li>
+                <li class="item-menu"><a href="precios.html">Precios</a></li>
+                <li class="item-menu"><a href="blog.html">Blog</a></li>
+                <li class="item-menu"><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contenedor-destinos">
+        <h2 class="titulo-seccion">Nuestros Destinos</h2>
+
+        <input type="radio" name="filtro" id="todos" class="input-filtro" checked>
+        <input type="radio" name="filtro" id="cultural" class="input-filtro">
+        <input type="radio" name="filtro" id="naturaleza" class="input-filtro">
+        <input type="radio" name="filtro" id="aventura" class="input-filtro">
+
+        <div class="menu-filtros">
+            <label for="todos" class="btn-filtro">Todos</label>
+            <label for="cultural" class="btn-filtro">Cultura e Historia</label>
+            <label for="naturaleza" class="btn-filtro">Naturaleza Pura</label>
+            <label for="aventura" class="btn-filtro">Aventura</label>
+        </div>
+
+        <div class="galeria-filtros">
+
+            <div class="tarjeta-destino cultural">
+                <img src="assets/pucara-tilcara.jpg" alt="Tilcara">
+                <div class="info-overlay">
+                    <h3>Pucará de Tilcara</h3>
+                </div>
+            </div>
+
+            <div class="tarjeta-destino naturaleza">
+                <img src="assets/salinas-grandes.jpg" alt="Salinas">
+                <div class="info-overlay">
+                    <h3>Salinas Grandes</h3>
+                </div>
+            </div>
+
+            <div class="tarjeta-destino cultural">
+                <img src="assets/iglesia-uquia.jpg" alt="Uquía">
+                <div class="info-overlay">
+                    <h3>Iglesia de Uquía</h3>
+                </div>
+            </div>
+
+            <div class="tarjeta-destino aventura">
+                <img src="assets/trekking.jpg" alt="Trekking">
+                <div class="info-overlay">
+                    <h3>Trekking en el Cerro</h3>
+                </div>
+            </div>
+
+        </div>
+
+        <section class="seccion-precios">
+            <h2 class="titulo-seccion">Precios y Paquetes</h2>
+
+            <table class="tabla-destinos">
+                <thead>
+                    <tr>
+                        <th>Destino</th>
+                        <th>Categoría</th>
+                        <th>Duración</th>
+                        <th>Precio Estimado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Pucará de Tilcara</td>
+                        <td>Cultura e Historia</td>
+                        <td>Medio día</td>
+                        <td>$15,000 ARS</td>
+                    </tr>
+                    <tr>
+                        <td>Salinas Grandes</td>
+                        <td>Naturaleza Pura</td>
+                        <td>Día completo</td>
+                        <td>$35,000 ARS</td>
+                    </tr>
+                    <tr>
+                        <td>Iglesia de Uquía</td>
+                        <td>Cultura e Historia</td>
+                        <td>2 horas</td>
+                        <td>Gratis (Aporte voluntario)</td>
+                    </tr>
+                    <tr>
+                        <td>Trekking en el Cerro</td>
+                        <td>Aventura</td>
+                        <td>Día completo</td>
+                        <td>$25,000 ARS</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer class="pie-pagina">
+        <div class="contenido-footer">
+
+            <div class="columna-footer">
+                <h3>Suscríbete al Newsletter</h3>
+                <form class="formulario-newsletter">
+                    <input type="email" placeholder="Ingresa tu correo" required>
+                    <button type="submit">Suscribirme</button>
+                </form>
+            </div>
+
+            <div class="columna-footer">
+                <h3>Síguenos</h3>
+                <ul class="redes-sociales">
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Twitter</a></li>
+                </ul>
+            </div>
+
+            <div class="columna-footer">
+                <h3>Nuestra Ubicación</h3>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115865.71714909831!2d-65.372545!3d-24.1832629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941b08e2f80c6533%3A0xcb1b51de9580a8eb!2sSan%20Salvador%20de%20Jujuy%2C%20Jujuy!5e0!3m2!1ses-419!2sar!4v1700000000000!5m2!1ses-419!2sar"
+                    width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+
+        </div>
+
+        <div class="derechos-autor">
+            <p>&copy; 2026 TurismoWeb Jujuy - APU. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
