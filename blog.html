@@ -303,17 +303,17 @@
              * Igual técnica que Destinos: .hide() / .show()
              * ----------------------------------------------- */
             $('.btn-categoria').on('click', function () {
-                // Actualizar estilos de los botones
-                $('.btn-categoria').removeClass('btn-warning btn-dark btn-success')
+                // Actualizar estilos de los botones (remover clases activas y outline originales)
+                $('.btn-categoria').removeClass('btn-warning btn-dark btn-success btn-outline-warning btn-outline-dark btn-outline-success')
                                   .addClass('btn-outline-secondary');
                 $(this).removeClass('btn-outline-secondary');
 
                 const cat = $(this).data('cat');
 
                 // Colorear según categoría
-                if (cat === 'todos')       $(this).addClass('btn-warning');
+                if (cat === 'todos')            $(this).addClass('btn-warning');
                 else if (cat === 'cultura')     $(this).addClass('btn-dark');
-                else if (cat === 'gastronomia') $(this).addClass('btn-warning');
+                else if (cat === 'gastronomia') $(this).addClass('btn-warning text-dark');
                 else if (cat === 'novedades')   $(this).addClass('btn-success');
 
                 if (cat === 'todos') {

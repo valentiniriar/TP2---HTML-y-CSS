@@ -631,3 +631,12 @@ header.py-5 .lead {
 }
 
 .sprite-icon { flex-shrink: 0; }
+
+/* Fix para color de texto en botones warning (evita hover inverso) */
+.btn-warning,
+.btn-outline-warning:hover,
+.btn-outline-warning:active,
+.btn-outline-warning:focus,
+.btn-outline-warning.active {
+    color: #212529 !important;
+}
