@@ -1,82 +1,72 @@
-# TP2 - Turismo Jujuy | HTML & CSS
+# Trabajo Práctico Integrador - Turismo Jujuy
 
-Sitio web de turismo regional enfocado en Jujuy, Argentina. Desarrollado como trabajo práctico de la materia Programación y Servicios Web.
+Sitio web de turismo regional enfocado en la hermosa provincia de Jujuy, Argentina. Este proyecto fue desarrollado en grupo por nosotros como trabajo práctico para la materia **Programación y Servicios Web**. A lo largo del cuatrimestre fuimos iterando el proyecto, y lo que comenzó siendo puramente HTML y CSS, evolucionó para incorporar interactividad con JavaScript y el framework Bootstrap.
 
 **Demo en vivo:** [https://tp2-turismo-jujuy.vercel.app](https://tp2-turismo-jujuy.vercel.app)
 
-**Presentacion grupal:** [Ver video en Google Drive](https://drive.google.com/file/d/1bJKhCz67CwsMUnVGUnU6DMZJv0GNXO3R/view?usp=drive_link)
+**Presentación grupal:** [Ver video y archivos en Google Drive](https://drive.google.com/drive/folders/15f6GIvKKqbzWKV7CsEOuexEAtk0NZviD?usp=sharing)
 
 ---
 
 ## Estructura del proyecto
 
-```
-TP2 - HTML y CSS/
-├── index.html          # Página principal con hero de video
-├── destinos.html       # Galería de destinos con filtros CSS
-├── agencias.html       # Tarjetas de agencias con efecto flip
+```text
+/
+├── index.html          # Página principal con hero de video y bienvenida
+├── destinos.html       # Galería de destinos interactiva
+├── agencias.html       # Tarjetas de agencias de turismo
 ├── blog.html           # Sección tipo diario de viajes
-├── precios.html        # Tabla de precios y paquetes
-├── contacto.html       # Formulario con modal de confirmación
+├── precios.html        # Tabla de precios y paquetes turísticos
+├── contacto.html       # Formulario de contacto y validaciones
+├── phishing.html       # Página informativa sobre seguridad
 ├── css/
-│   └── style.css       # Estilos globales
-└── assets/             # Imágenes y video de fondo
+│   └── style.css       # Estilos globales personalizados
+├── js/
+│   └── main.js         # Scripts para la interactividad del sitio
+└── assets/             # Imágenes, iconos y video de fondo
 ```
 
 ---
 
 ## Diseño visual
 
-El foco del diseño es ser **altamente visual**. La página principal incluye un **video de fondo** con un filtro oscuro superpuesto para garantizar legibilidad del texto.
+Nuestro objetivo como grupo fue lograr un diseño **altamente visual y atractivo**. La página principal te recibe con un **video de fondo** inmersivo, utilizando filtros para mantener la legibilidad de los textos principales.
 
-**Paleta de colores:**
-- **Azul** — color principal, transmite seriedad y confianza
-- **Naranja** — usado en botones y CTAs, genera contraste y guía la atención del usuario
+**Nuestra paleta de colores:**
+- **Azul** — color principal que elegimos para transmitir seriedad y confianza al turista.
+- **Naranja** — utilizado estratégicamente en botones y CTAs (Call to Action), generando contraste para guiar la atención del usuario.
 
-Los contrastes de color fueron pensados respetando criterios de accesibilidad para facilitar la lectura.
+Nos aseguramos de que los contrastes de color respeten los criterios de accesibilidad para facilitar la lectura a todos los usuarios.
 
 ---
 
 ## Stack tecnológico
 
-- **HTML5** — uso semántico de etiquetas: `<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`
-- **CSS3** — estilos sin dependencias externas ni frameworks
+En esta versión del proyecto, nuestro grupo implementó las siguientes tecnologías:
+
+- **HTML5** — Utilizamos etiquetas semánticas (`<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`) para mejorar la estructura y la accesibilidad.
+- **CSS3** — Mantenemos estilos personalizados y efectos visuales desarrollados por nosotros.
+- **Bootstrap 5** — Lo incorporamos para agilizar la maquetación responsiva, utilizar su sistema de grillas y algunos de sus componentes interactivos.
+- **JavaScript (Vanilla JS)** — Agregamos JS para dotar a la página de mayor dinamismo, realizar validaciones de formularios y manejar eventos del DOM que sobrepasan las limitaciones de CSS puro.
 
 ---
 
-## Diseño responsivo
+## Interactividad y Responsividad
 
-La maquetación responsiva combina dos enfoques de CSS:
+### Diseño Responsivo
+El sitio está completamente adaptado a diferentes tamaños de pantalla (Mobile First). Para esto combinamos el poder de **CSS Grid** y **Flexbox**, junto con las utilidades de **Bootstrap**, logrando que elementos como las galerías de destinos y los artículos del blog se reorganicen fluidamente.
 
-- **Flexbox** — navegación, encabezados y alineación de elementos en fila
-- **CSS Grid** — galerías de destinos y grilla del blog, que se reorganizan automáticamente según el ancho de pantalla
-
----
-
-## Interactividad solo con CSS3
-
-Prácticamente toda la interactividad del sitio se implementó **sin JavaScript**, aprovechando selectores y pseudoclases de CSS3:
-
-### Filtros en galería de destinos
-Sistema de filtrado implementado con **radio buttons ocultos** y el selector `:checked`. Al seleccionar una categoría, se muestran u ocultan las tarjetas correspondientes sin necesidad de JS.
-
-### Efecto flip en tarjetas de agencias
-Las tarjetas de agencias tienen un **efecto de rotación 3D** activado con `:hover`. El frente muestra la imagen y el reverso muestra información de contacto.
-
-### Zoom en fotos
-Las imágenes de la galería aplican un **efecto de zoom** (`transform: scale`) al hacer hover, dando profundidad y retroalimentación visual.
-
-### Modal de confirmación en el formulario
-El formulario de contacto incluye un **modal de confirmación** que se activa usando el selector `:target` de CSS al navegar a un anchor `#modal`, sin ninguna línea de JavaScript.
-
-### Animaciones con `@keyframes`
-- **Contador de visitas** — animación numérica al entrar en pantalla
-- **Spinner de carga** — animación circular en el formulario al enviar
+### Funcionalidades destacadas
+- **Galería dinámica:** Filtros de búsqueda y navegación mejorada.
+- **Efectos visuales:** Implementamos tarjetas con efecto flip 3D en las agencias y transiciones suaves (`transform: scale`) en las fotos al hacer hover.
+- **Validación de Formularios:** Uso de JavaScript para validar que los datos de contacto ingresados por el usuario sean correctos antes de enviarlos.
+- **Animaciones:** Elementos dinámicos y modales interactivos para enriquecer la experiencia del usuario.
 
 ---
 
 ## Deploy
 
-El sitio está deployado en **Vercel**: [https://tp2-turismo-jujuy.vercel.app](https://tp2-turismo-jujuy.vercel.app)
+Decidimos utilizar **Vercel** para subir nuestro proyecto y que esté accesible para todos:
+[https://tp2-turismo-jujuy.vercel.app](https://tp2-turismo-jujuy.vercel.app)
 
-Para correr el proyecto localmente, simplemente abrí `index.html` en el navegador — no requiere servidor ni dependencias.
+Para probar el proyecto de forma local, simplemente se debe clonar el repositorio y abrir el archivo `index.html` en cualquier navegador web. ¡No requiere de instalaciones extra ni de un servidor local!
