@@ -1,0 +1,68 @@
+/*
+ * ============================================================
+ * SPRITES.CSS — CSS Sprite para TurismoWeb Jujuy
+ * ============================================================
+ *
+ * ¿QUÉ ES UN CSS SPRITE?
+ * Un sprite es una ÚNICA imagen que contiene múltiples iconos
+ * agrupados uno al lado del otro.
+ * Usando "background-position" le decimos al navegador qué
+ * parte de esa imagen mostrar, como una "ventana" que se mueve.
+ *
+ * VENTAJA: 1 sola petición HTTP en lugar de 4 → más rápido.
+ *
+ * NUESTRO SPRITE (assets/sprite.svg) — 128px × 32px:
+ *
+ *  |← 32px →|← 32px →|← 32px →|← 32px →|
+ *  [Facebook][Instagram][Twitter][  Email]
+ *   x=0      x=32       x=64     x=96
+ *
+ * Para "ver" el icono de Instagram necesitamos mover la imagen
+ * 32px hacia la izquierda → background-position: -32px 0
+ * ============================================================
+ */
+
+/* --- Clase base para todos los íconos sprite --- */
+.sprite-icon {
+    display: inline-block;           /* Se comporta como una caja */
+    width: 32px;                     /* Ancho de la "ventana" visible */
+    height: 32px;                    /* Alto de la "ventana" visible */
+    background-image: url('../assets/sprite.svg');  /* El sprite */
+    background-size: 128px 32px;     /* Tamaño TOTAL del sprite */
+    background-repeat: no-repeat;    /* No repetir la imagen */
+    border-radius: 6px;              /* Bordes redondeados */
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.sprite-icon:hover {
+    transform: scale(1.15);
+    opacity: 0.85;
+}
+
+/*
+ * background-position: X Y
+ *   X negativo → mueve la imagen a la izquierda
+ *   (equivale a "saltar" iconos hacia la derecha)
+ */
+
+/* Icono FACEBOOK  → posición 0px   en el sprite */
+.sprite-facebook {
+    background-position: 0 0;
+}
+
+/* Icono INSTAGRAM → posición 32px  en el sprite → mover -32px */
+.sprite-instagram {
+    background-position: -32px 0;
+}
+
+/* Icono TWITTER/X → posición 64px  en el sprite → mover -64px */
+.sprite-twitter {
+    background-position: -64px 0;
+}
+
+/* Icono EMAIL     → posición 96px  en el sprite → mover -96px */
+.sprite-email {
+    background-position: -96px 0;
+}

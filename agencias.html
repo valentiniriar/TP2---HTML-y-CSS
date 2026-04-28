@@ -3,136 +3,403 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Agencias - Turismo Jujuy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agencias — TurismoWeb Jujuy</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/sprites.css">
 </head>
 
 <body>
 
-    <header class="encabezado-principal">
-        <div class="logo">
-            <h1>TurismoWeb</h1>
+    <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+        <div class="container">
+            <a class="navbar-brand text-white fw-bold" href="index.html">
+                <i class="bi bi-compass-fill text-warning me-1"></i>TurismoWeb
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#menuPrincipal">
+                <i class="bi bi-list text-white fs-2"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="menuPrincipal">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+                    <li class="nav-item"><a class="nav-link" href="index.html"><i
+                                class="bi bi-house-door me-1"></i>Inicio</a></li>
+                    <li class="nav-item dropdown mega-dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"><i
+                                class="bi bi-map me-1"></i>Destinos</a>
+                        <div class="dropdown-menu mega-menu shadow-lg">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <p class="mega-titulo"><i class="bi bi-funnel me-1"></i>Por Categoría</p>
+                                        <a class="dropdown-item" href="destinos.html"><i
+                                                class="bi bi-grid me-2 text-warning"></i>Todos</a>
+                                        <a class="dropdown-item" href="destinos.html?filtro=cultural"><i
+                                                class="bi bi-building me-2 text-primary"></i>Cultura e Historia</a>
+                                        <a class="dropdown-item" href="destinos.html?filtro=naturaleza"><i
+                                                class="bi bi-tree me-2 text-success"></i>Naturaleza Pura</a>
+                                        <a class="dropdown-item" href="destinos.html?filtro=aventura"><i
+                                                class="bi bi-activity me-2 text-danger"></i>Aventura</a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p class="mega-titulo"><i class="bi bi-geo-alt me-1"></i>Por Región</p>
+                                        <a class="dropdown-item" href="destinos.html"><i
+                                                class="bi bi-pin-map me-2"></i>Quebrada de Humahuaca</a>
+                                        <a class="dropdown-item" href="destinos.html"><i
+                                                class="bi bi-pin-map me-2"></i>La Puna Jujeña</a>
+                                        <a class="dropdown-item" href="destinos.html"><i
+                                                class="bi bi-pin-map me-2"></i>Valles Subtropicales</a>
+                                    </div>
+                                    <div class="col-md-4 d-none d-md-block">
+                                        <p class="mega-titulo"><i class="bi bi-star me-1"></i>Destacados</p>
+                                        <a class="dropdown-item" href="destinos.html"><i
+                                                class="bi bi-award me-2 text-warning"></i>Purmamarca</a>
+                                        <a class="dropdown-item" href="destinos.html"><i
+                                                class="bi bi-award me-2 text-warning"></i>Salinas Grandes</a>
+                                        <a class="dropdown-item" href="agencias.html"><i
+                                                class="bi bi-building-check me-2"></i>Ver Agencias</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="agencias.html"><i
+                                class="fa-solid fa-building-user me-1"></i>Agencias</a></li>
+                    <li class="nav-item"><a class="nav-link" href="precios.html"><i
+                                class="fa-solid fa-tags me-1"></i>Precios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html"><i
+                                class="bi bi-journal-text me-1"></i>Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacto.html"><i
+                                class="bi bi-envelope me-1"></i>Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-warning btn-sm text-dark px-3 fw-bold"
+                            href="phishing.html"><i class="bi bi-shield-exclamation me-1"></i>Seguridad</a></li>
+                </ul>
+            </div>
         </div>
+    </nav>
 
-        <nav class="menu-navegacion">
-            <ul class="lista-menu">
-                <li class="item-menu"><a href="index.html">Inicio</a></li>
-                <li class="item-menu"><a href="destinos.html">Destinos</a></li>
-                <li class="item-menu"><a href="agencias.html">Agencias</a></li>
-                <li class="item-menu"><a href="precios.html">Precios</a></li>
-                <li class="item-menu"><a href="blog.html">Blog</a></li>
-                <li class="item-menu"><a href="contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
+    <header class="py-5 bg-seccion-alt text-center border-bottom">
+        <div class="container">
+            <h1 class="display-5 fw-bold">
+                <i class="fa-solid fa-building-user text-warning me-2"></i>Agencias de Turismo
+            </h1>
+            <p class="lead text-muted">
+                Conocé nuestras agencias asociadas. Pasá el mouse sobre las tarjetas o hacé click para ver los detalles.
+            </p>
+
+            <div class="alert alert-info d-inline-flex align-items-center gap-2 py-2 px-4 mt-2">
+                <i class="bi bi-info-circle-fill"></i>
+                <span class="small"><strong>aviso:</strong> En desktop: pasá el mouse. En móvil: tocá la tarjeta para
+                    voltearla.</span>
+            </div>
+        </div>
     </header>
 
-    <main class="contenedor-agencias">
-        <h2 class="titulo-seccion">Agencias de Turismo Asociadas</h2>
+    <main class="py-5">
+        <div class="container">
 
-        <div class="caja-tarjetas">
+            <h2 class="text-center mb-5 seccion-titulo">
+                <i class="bi bi-building-check text-warning me-2"></i>Agencias Asociadas
+            </h2>
 
-            <article class="tarjeta-flip">
-                <div class="tarjeta-interna">
+            <div class="row g-4 justify-content-center mb-5">
 
-                    <div class="tarjeta-frente">
-                        <img src="assets/agencia-andina.jpg" alt="Agencia Andina" class="img-tarjeta">
-                        <div class="info-tarjeta">
-                            <h3>Agencia Andina</h3>
-                            <p>Especialistas en la Quebrada.</p>
-                        </div>
-                    </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="tarjeta-flip w-100">
+                        <div class="tarjeta-interna" id="flip-1">
 
-                    <div class="tarjeta-dorso">
-                        <h3>Contacto</h3>
-                        <p>📞 +54 388 123-4567</p>
-                        <p>📍 San Salvador de Jujuy</p>
+                            <div class="tarjeta-frente">
+                                <img src="assets/agencia-andina.jpg" alt="Agencia Andina" class="img-tarjeta">
+                                <div class="p-3">
+                                    <h4 class="fw-bold text-dark">
+                                        <i class="bi bi-building me-2 text-warning"></i>Agencia Andina
+                                    </h4>
+                                    <p class="text-muted small">Especialistas en la Quebrada de Humahuaca.</p>
+                                    <span class="badge bg-warning text-dark">
+                                        <i class="bi bi-geo-alt me-1"></i>San Salvador de Jujuy
+                                    </span>
+                                </div>
+                            </div>
 
-                        <div class="estrellas-rating">
-                            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-                        </div>
-                    </div>
+                            <div class="tarjeta-dorso">
+                                <h4 class="text-warning fw-bold mb-3">
+                                    <i class="bi bi-telephone me-2"></i>Contacto
+                                </h4>
+                                <p><i class="bi bi-telephone-fill me-2"></i>+54 388 123-4567</p>
+                                <p><i class="bi bi-geo-alt-fill me-2"></i>San Salvador de Jujuy</p>
+                                <p><i class="bi bi-envelope-fill me-2"></i>andina@turismo.jujuy</p>
 
-                </div>
-            </article>
+                                <div class="mt-2">
+                                    <p class="small text-white-50 mb-1">Tu valoración:</p>
 
-            <article class="tarjeta-flip">
-                <div class="tarjeta-interna">
-                    <div class="tarjeta-frente">
-                        <img src="assets/ruta-norte-viajes.jpg" alt="Ruta Norte" class="img-tarjeta">
-                        <div class="info-tarjeta">
-                            <h3>Ruta Norte Viajes</h3>
-                            <p>Aventuras en las Salinas.</p>
-                        </div>
-                    </div>
-                    <div class="tarjeta-dorso">
-                        <h3>Contacto</h3>
-                        <p>📞 +54 388 987-6543</p>
-                        <p>📍 Purmamarca</p>
-                        <div class="estrellas-rating">
-                            <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
-                        </div>
-                    </div>
-                </div>
-            </article>
+                                    <div class="estrellas-rating" data-rating-id="agencia-1" data-rating-actual="4">
+                                        <span class="estrella activa" data-valor="1">★</span>
+                                        <span class="estrella activa" data-valor="2">★</span>
+                                        <span class="estrella activa" data-valor="3">★</span>
+                                        <span class="estrella activa" data-valor="4">★</span>
+                                        <span class="estrella" data-valor="5">☆</span>
+                                    </div>
+                                    <p class="texto-rating">Rating: 4/5</p>
+                                </div>
 
-            <article class="tarjeta-flip">
-                <div class="tarjeta-interna">
-                    <div class="tarjeta-frente">
-                        <img src="assets/jujuy-trekking.jpg" alt="Jujuy Trek" class="img-tarjeta">
-                        <div class="info-tarjeta">
-                            <h3>Jujuy Trekking</h3>
-                            <p>Turismo activo y de montaña.</p>
-                        </div>
-                    </div>
-                    <div class="tarjeta-dorso">
-                        <h3>Contacto</h3>
-                        <p>📞 +54 388 555-4444</p>
-                        <p>📍 Tilcara</p>
-                        <div class="estrellas-rating">
-                            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                                <a href="contacto.html" class="btn btn-warning btn-sm mt-2">
+                                    <i class="bi bi-send me-1"></i>Consultar
+                                </a>
+                            </div>
+
                         </div>
                     </div>
                 </div>
-            </article>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="tarjeta-flip w-100">
+                        <div class="tarjeta-interna" id="flip-2">
+
+                            <div class="tarjeta-frente">
+                                <img src="assets/ruta-norte-viajes.jpg" alt="Ruta Norte Viajes" class="img-tarjeta">
+                                <div class="p-3">
+                                    <h4 class="fw-bold text-dark">
+                                        <i class="bi bi-signpost me-2 text-warning"></i>Ruta Norte Viajes
+                                    </h4>
+                                    <p class="text-muted small">Aventuras en las Salinas y la Puna.</p>
+                                    <span class="badge bg-warning text-dark">
+                                        <i class="bi bi-geo-alt me-1"></i>Purmamarca
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="tarjeta-dorso">
+                                <h4 class="text-warning fw-bold mb-3">
+                                    <i class="bi bi-telephone me-2"></i>Contacto
+                                </h4>
+                                <p><i class="bi bi-telephone-fill me-2"></i>+54 388 987-6543</p>
+                                <p><i class="bi bi-geo-alt-fill me-2"></i>Purmamarca</p>
+                                <p><i class="bi bi-envelope-fill me-2"></i>rutanorte@viajes.jujuy</p>
+
+                                <div class="mt-2">
+                                    <p class="small text-white-50 mb-1">Tu valoración:</p>
+                                    <div class="estrellas-rating" data-rating-id="agencia-2" data-rating-actual="3">
+                                        <span class="estrella activa" data-valor="1">★</span>
+                                        <span class="estrella activa" data-valor="2">★</span>
+                                        <span class="estrella activa" data-valor="3">★</span>
+                                        <span class="estrella" data-valor="4">☆</span>
+                                        <span class="estrella" data-valor="5">☆</span>
+                                    </div>
+                                    <p class="texto-rating">Rating: 3/5</p>
+                                </div>
+
+                                <a href="contacto.html" class="btn btn-warning btn-sm mt-2">
+                                    <i class="bi bi-send me-1"></i>Consultar
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="tarjeta-flip w-100">
+                        <div class="tarjeta-interna" id="flip-3">
+
+                            <div class="tarjeta-frente">
+                                <img src="assets/jujuy-trekking.jpg" alt="Jujuy Trekking" class="img-tarjeta">
+                                <div class="p-3">
+                                    <h4 class="fw-bold text-dark">
+                                        <i class="bi bi-mountain me-2 text-warning"></i>Jujuy Trekking
+                                    </h4>
+                                    <p class="text-muted small">Turismo activo y de montaña de alta calidad.</p>
+                                    <span class="badge bg-warning text-dark">
+                                        <i class="bi bi-geo-alt me-1"></i>Tilcara
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="tarjeta-dorso">
+                                <h4 class="text-warning fw-bold mb-3">
+                                    <i class="bi bi-telephone me-2"></i>Contacto
+                                </h4>
+                                <p><i class="bi bi-telephone-fill me-2"></i>+54 388 555-4444</p>
+                                <p><i class="bi bi-geo-alt-fill me-2"></i>Tilcara</p>
+                                <p><i class="bi bi-envelope-fill me-2"></i>trekking@jujuy.ar</p>
+
+                                <div class="mt-2">
+                                    <p class="small text-white-50 mb-1">Tu valoración:</p>
+                                    <div class="estrellas-rating" data-rating-id="agencia-3" data-rating-actual="5">
+                                        <span class="estrella activa" data-valor="1">★</span>
+                                        <span class="estrella activa" data-valor="2">★</span>
+                                        <span class="estrella activa" data-valor="3">★</span>
+                                        <span class="estrella activa" data-valor="4">★</span>
+                                        <span class="estrella activa" data-valor="5">★</span>
+                                    </div>
+                                    <p class="texto-rating">Rating: 5/5</p>
+                                </div>
+
+                                <a href="contacto.html" class="btn btn-warning btn-sm mt-2">
+                                    <i class="bi bi-send me-1"></i>Consultar
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row g-4 mt-2">
+                <div class="col-12 col-md-4">
+                    <div class="card border-0 bg-seccion-alt text-center p-4 h-100">
+                        <i class="bi bi-shield-check display-4 text-warning mb-3"></i>
+                        <h5 class="fw-bold">Agencias Certificadas</h5>
+                        <p class="text-muted small">Todas nuestras agencias cuentan con habilitación oficial del
+                            Ministerio de Turismo.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="card border-0 bg-seccion-alt text-center p-4 h-100">
+                        <i class="bi bi-headset display-4 text-warning mb-3"></i>
+                        <h5 class="fw-bold">Soporte 24/7</h5>
+                        <p class="text-muted small">Asistencia permanente durante todo tu viaje. Nunca estás solo.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="card border-0 bg-seccion-alt text-center p-4 h-100">
+                        <i class="bi bi-cash-coin display-4 text-warning mb-3"></i>
+                        <h5 class="fw-bold">Mejor Precio</h5>
+                        <p class="text-muted small">Garantizamos el mejor precio del mercado. Si encontrás más barato,
+                            lo igualamos.</p>
+                    </div>
+                </div>
+            </div>
 
         </div>
     </main>
 
-    <footer class="pie-pagina">
-
-        <div class="contenido-footer">
-
-            <div class="columna-footer">
-                <h3>Suscríbete al Newsletter</h3>
-                <form class="formulario-newsletter">
-                    <input type="email" placeholder="Ingresa tu correo" required>
-                    <button type="submit">Suscribirme</button>
-                </form>
+    <footer class="bg-footer text-white pt-5 pb-3">
+        <div class="container">
+            <div class="row g-5 mb-4">
+                <div class="col-12 col-md-4">
+                    <h5 class="text-warning fw-bold mb-3"><i class="bi bi-envelope-heart me-2"></i>Newsletter</h5>
+                    <form id="form-newsletter" class="d-flex gap-2" novalidate>
+                        <input type="email" id="email-newsletter" class="form-control form-control-sm"
+                            placeholder="tu@correo.com" required>
+                        <button type="submit" class="btn btn-warning btn-sm px-3"><i
+                                class="bi bi-send-fill"></i></button>
+                    </form>
+                    <small id="msg-newsletter" class="text-success mt-2 d-none"><i
+                            class="bi bi-check-circle me-1"></i>¡Suscrito!</small>
+                </div>
+                <div class="col-12 col-md-4">
+                    <h5 class="text-warning fw-bold mb-3"><i class="bi bi-share me-2"></i>Síguenos</h5>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="sprite-icon sprite-facebook" title="Facebook"></a>
+                        <a href="#" class="sprite-icon sprite-instagram" title="Instagram"></a>
+                        <a href="#" class="sprite-icon sprite-twitter" title="Twitter"></a>
+                        <a href="contacto.html" class="sprite-icon sprite-email" title="Email"></a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <h5 class="text-warning fw-bold mb-3"><i class="bi bi-geo-alt me-2"></i>Ubicación</h5>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115865.71714909831!2d-65.372545!3d-24.1832629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941b08e2f80c6533%3A0xcb1b51de9580a8eb!2sSan%20Salvador%20de%20Jujuy%2C%20Jujuy!5e0!3m2!1ses-419!2sar!4v1700000000000!5m2!1ses-419!2sar"
+                        class="w-100 rounded" height="160" style="border:0;" allowfullscreen loading="lazy"></iframe>
+                </div>
             </div>
-
-            <div class="columna-footer">
-                <h3>Síguenos</h3>
-                <ul class="redes-sociales">
-                    <li><a href="#">Facebook</a></li>
-                    <li><a href="#">Instagram</a></li>
-                    <li><a href="#">Twitter</a></li>
-                </ul>
-            </div>
-
-            <div class="columna-footer">
-                <h3>Nuestra Ubicación</h3>
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115865.71714909831!2d-65.372545!3d-24.1832629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941b08e2f80c6533%3A0xcb1b51de9580a8eb!2sSan%20Salvador%20de%20Jujuy%2C%20Jujuy!5e0!3m2!1ses-419!2sar!4v1700000000000!5m2!1ses-419!2sar"
-                    width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-
+            <hr class="border-secondary">
+            <p class="text-center text-white-50 mb-0 small">&copy; 2026 TurismoWeb Jujuy — Facultad de Ingeniería, UNJu.
+            </p>
         </div>
-
-        <div class="derechos-autor">
-            <p>&copy; 2026 TurismoWeb Jujuy - APU. Todos los derechos reservados.</p>
-        </div>
-
     </footer>
+
+    <button id="btn-top" class="btn btn-warning rounded-circle shadow"
+        style="display:none;position:fixed;bottom:25px;right:25px;width:48px;height:48px;z-index:999;">
+        <i class="bi bi-arrow-up-short fs-4"></i>
+    </button>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        $(function () {
+
+            /* -----------------------------------------------
+             * FLIP CARDS CON JQUERY (click toggle en móvil)
+             * CSS ya maneja el hover en desktop.
+             * Para móvil (sin hover), jQuery agrega .flipped al click.
+             * .toggleClass() → si tiene la clase la quita, si no la tiene la agrega
+             * ----------------------------------------------- */
+            $('.tarjeta-flip').on('click', function () {
+                // Encontrar la .tarjeta-interna dentro de esta tarjeta
+                $(this).find('.tarjeta-interna').toggleClass('flipped');
+            });
+
+            /* -----------------------------------------------
+             * SISTEMA DE RATING CON ESTRELLAS (jQuery)
+             * El usuario hace click en una estrella para calificar.
+             * Se guardan los estados con data() de jQuery.
+             * ----------------------------------------------- */
+
+            // --- HOVER: preview de las estrellas ---
+            $(document).on('mouseenter', '.estrella', function () {
+                const $grupo = $(this).closest('.estrellas-rating');
+                const valor = parseInt($(this).data('valor'));
+
+                // Iluminar todas las estrellas hasta la que estás apuntando
+                $grupo.find('.estrella').each(function (i) {
+                    if (parseInt($(this).data('valor')) <= valor) {
+                        $(this).text('★').css('color', '#f39c12');
+                    } else {
+                        $(this).text('☆').css('color', '#ccc');
+                    }
+                });
+            });
+
+            // --- MOUSELEAVE: restaurar el rating guardado ---
+            $(document).on('mouseleave', '.estrellas-rating', function () {
+                const $grupo = $(this);
+                // Leer el rating actual guardado en data()
+                const ratingActual = parseInt($grupo.data('rating-actual')) || 0;
+
+                $grupo.find('.estrella').each(function () {
+                    const v = parseInt($(this).data('valor'));
+                    if (v <= ratingActual) {
+                        $(this).text('★').addClass('activa').css('color', '');
+                    } else {
+                        $(this).text('☆').removeClass('activa').css('color', '#ccc');
+                    }
+                });
+            });
+
+            // --- CLICK: guardar el nuevo rating ---
+            $(document).on('click', '.estrella', function (e) {
+                // Evitar que el click en la estrella voltee la tarjeta
+                e.stopPropagation();
+
+                const $grupo = $(this).closest('.estrellas-rating');
+                const nuevoRating = parseInt($(this).data('valor'));
+
+                // Guardar el nuevo rating en el atributo data del DOM
+                $grupo.data('rating-actual', nuevoRating);
+                $grupo.attr('data-rating-actual', nuevoRating);
+
+                // Actualizar visual
+                $grupo.find('.estrella').each(function () {
+                    if (parseInt($(this).data('valor')) <= nuevoRating) {
+                        $(this).text('★').addClass('activa').css('color', '');
+                    } else {
+                        $(this).text('☆').removeClass('activa').css('color', '#ccc');
+                    }
+                });
+
+                // Actualizar texto del rating
+                $grupo.siblings('.texto-rating').text('Rating: ' + nuevoRating + '/5');
+            });
+
+        });
+    </script>
 
 </body>
 

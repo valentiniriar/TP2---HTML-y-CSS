@@ -3,138 +3,420 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Blog - Turismo Jujuy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog — TurismoWeb Jujuy</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/sprites.css">
 </head>
 
 <body>
 
-    <header class="encabezado-principal">
-        <div class="logo">
-            <h1>TurismoWeb</h1>
-        </div>
-
-        <nav class="menu-navegacion">
-            <ul class="lista-menu">
-                <li class="item-menu"><a href="index.html">Inicio</a></li>
-                <li class="item-menu"><a href="destinos.html">Destinos</a></li>
-                <li class="item-menu"><a href="agencias.html">Agencias</a></li>
-                <li class="item-menu"><a href="precios.html">Precios</a></li>
-                <li class="item-menu"><a href="blog.html">Blog</a></li>
-                <li class="item-menu"><a href="contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main class="contenedor-blog">
-        <h2 class="titulo-seccion">Diario de Viaje: Jujuy</h2>
-
-        <div class="grilla-periodico">
-
-            <article class="noticia principal reveal">
-                <img src="assets/carnaval-quebrada.png" alt="Carnaval">
-                <div class="contenido-noticia">
-                    <span class="tag">Cultura</span>
-                    <h3>El Carnaval de la Quebrada: Una experiencia única</h3>
-                    <p>Descubre los secretos de una de las festividades más coloridas y tradicionales de Argentina. El
-                        desentierro del diablo, las comparsas y la alegría del pueblo...</p>
-                    <a href="#">Leer más...</a>
-                </div>
-            </article>
-
-            <article class="noticia normal reveal">
-                <img src="assets/ruta-empanadas.jpg" alt="Empanadas">
-                <div class="contenido-noticia">
-                    <span class="tag">Gastronomía</span>
-                    <h3>Ruta de la Empanada Jujeña</h3>
-                    <p>Un recorrido por los mejores sabores locales.</p>
-                </div>
-            </article>
-
-            <article class="noticia normal reveal">
-                <img src="assets/tren-solar.jpg" alt="Tren">
-                <div class="contenido-noticia">
-                    <span class="tag">Novedades</span>
-                    <h3>Inauguración del Tren Solar</h3>
-                    <p>El primer tren turístico a batería de Latinoamérica ya está en marcha.</p>
-                </div>
-            </article>
-
-            <article class="noticia normal reveal">
-                <img src="assets/tejido-telar.jpg" alt="Tejidos">
-                <div class="contenido-noticia">
-                    <span class="tag">Cultura</span>
-                    <h3>El arte del tejido en telar</h3>
-                    <p>Conoce a las artesanas que mantienen viva la tradición.</p>
-                </div>
-            </article>
-
-        </div>
-
-        <section class="comentarios-blog">
-
-            <h3>Comentarios (2)</h3>
-
-            <div class="comentario">
-                <div class="avatar-css" data-iniciales="MG"></div>
-                <div class="contenido-texto">
-                    <h4>Martín Gómez <span class="fecha-comentario">hace 2 horas</span></h4>
-                    <p>¡Qué increíble artículo! Me dieron muchas ganas de ir al carnaval el próximo año en Tilcara.</p>
-                </div>
-            </div>
-
-            <div class="comentario">
-                <div class="avatar-css avatar-verde" data-iniciales="SL"></div>
-                <div class="contenido-texto">
-                    <h4>Sofía López <span class="fecha-comentario">hace 5 horas</span></h4>
-                    <p>Excelente información. ¿Saben si hay que reservar alojamiento con mucha anticipación?</p>
-                </div>
-            </div>
-
-            <div class="nuevo-comentario">
-                <textarea placeholder="Escribe tu comentario aquí..." rows="3"></textarea>
-                <button class="btn-publicar">Publicar Comentario</button>
-            </div>
-
-        </section>
-    </main>
-
-    <footer class="pie-pagina">
-
-        <div class="contenido-footer">
-
-            <div class="columna-footer">
-                <h3>Suscríbete al Newsletter</h3>
-                <form class="formulario-newsletter">
-                    <input type="email" placeholder="Ingresa tu correo" required>
-                    <button type="submit">Suscribirme</button>
-                </form>
-            </div>
-
-            <div class="columna-footer">
-                <h3>Síguenos</h3>
-                <ul class="redes-sociales">
-                    <li><a href="#">Facebook</a></li>
-                    <li><a href="#">Instagram</a></li>
-                    <li><a href="#">Twitter</a></li>
+    <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+        <div class="container">
+            <a class="navbar-brand text-white fw-bold" href="index.html">
+                <i class="bi bi-compass-fill text-warning me-1"></i>TurismoWeb
+            </a>
+            <button class="navbar-toggler border-0" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#menuPrincipal">
+                <i class="bi bi-list text-white fs-2"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="menuPrincipal">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+                    <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-house-door me-1"></i>Inicio</a></li>
+                    <li class="nav-item dropdown mega-dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"><i class="bi bi-map me-1"></i>Destinos</a>
+                        <div class="dropdown-menu mega-menu shadow-lg"><div class="container"><div class="row">
+                            <div class="col-md-4"><p class="mega-titulo"><i class="bi bi-funnel me-1"></i>Por Categoría</p>
+                                <a class="dropdown-item" href="destinos.html"><i class="bi bi-grid me-2 text-warning"></i>Todos</a>
+                                <a class="dropdown-item" href="destinos.html?filtro=cultural"><i class="bi bi-building me-2 text-primary"></i>Cultura</a>
+                                <a class="dropdown-item" href="destinos.html?filtro=naturaleza"><i class="bi bi-tree me-2 text-success"></i>Naturaleza</a>
+                                <a class="dropdown-item" href="destinos.html?filtro=aventura"><i class="bi bi-activity me-2 text-danger"></i>Aventura</a>
+                            </div>
+                            <div class="col-md-4"><p class="mega-titulo"><i class="bi bi-geo-alt me-1"></i>Por Región</p>
+                                <a class="dropdown-item" href="destinos.html"><i class="bi bi-pin-map me-2"></i>Quebrada de Humahuaca</a>
+                                <a class="dropdown-item" href="destinos.html"><i class="bi bi-pin-map me-2"></i>La Puna Jujeña</a>
+                            </div>
+                            <div class="col-md-4 d-none d-md-block"><p class="mega-titulo"><i class="bi bi-star me-1"></i>Destacados</p>
+                                <a class="dropdown-item" href="destinos.html"><i class="bi bi-award me-2 text-warning"></i>Purmamarca</a>
+                                <a class="dropdown-item" href="agencias.html"><i class="bi bi-building-check me-2"></i>Ver Agencias</a>
+                            </div>
+                        </div></div></div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="agencias.html"><i class="fa-solid fa-building-user me-1"></i>Agencias</a></li>
+                    <li class="nav-item"><a class="nav-link" href="precios.html"><i class="fa-solid fa-tags me-1"></i>Precios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html"><i class="bi bi-journal-text me-1"></i>Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacto.html"><i class="bi bi-envelope me-1"></i>Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-warning btn-sm text-dark px-3 fw-bold" href="phishing.html"><i class="bi bi-shield-exclamation me-1"></i>Seguridad</a></li>
                 </ul>
             </div>
+        </div>
+    </nav>
 
-            <div class="columna-footer">
-                <h3>Nuestra Ubicación</h3>
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115865.71714909831!2d-65.372545!3d-24.1832629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941b08e2f80c6533%3A0xcb1b51de9580a8eb!2sSan%20Salvador%20de%20Jujuy%2C%20Jujuy!5e0!3m2!1ses-419!2sar!4v1700000000000!5m2!1ses-419!2sar"
-                    width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    <header class="py-5 bg-seccion-alt text-center border-bottom">
+        <div class="container">
+            <h1 class="display-5 fw-bold">
+                <i class="bi bi-journal-richtext text-warning me-2"></i>Diario de Viaje: Jujuy
+            </h1>
+            <p class="lead text-muted">Historias, consejos y novedades del turismo jujeño.</p>
+
+            <div class="d-flex flex-wrap justify-content-center gap-2 mt-4">
+                <button class="btn btn-warning btn-categoria" data-cat="todos">
+                    <i class="bi bi-grid me-1"></i>Todos
+                </button>
+                <button class="btn btn-outline-dark btn-categoria" data-cat="cultura">
+                    <i class="bi bi-building me-1"></i>Cultura
+                </button>
+                <button class="btn btn-outline-warning btn-categoria" data-cat="gastronomia">
+                    <i class="fa-solid fa-utensils me-1"></i>Gastronomía
+                </button>
+                <button class="btn btn-outline-success btn-categoria" data-cat="novedades">
+                    <i class="bi bi-newspaper me-1"></i>Novedades
+                </button>
             </div>
 
         </div>
+    </header>
 
-        <div class="derechos-autor">
-            <p>&copy; 2026 TurismoWeb Jujuy - APU. Todos los derechos reservados.</p>
+    <main class="py-5">
+        <div class="container">
+
+            <div class="grilla-periodico" id="grilla-blog">
+
+                <article class="noticia principal" data-cat="cultura">
+                    <img src="assets/carnaval-quebrada.png" alt="Carnaval de la Quebrada">
+                    <div class="contenido-noticia">
+                        <span class="tag-blog tag-cultura">
+                            <i class="bi bi-building me-1"></i>Cultura
+                        </span>
+                        <h3 class="fw-bold mt-2">El Carnaval de la Quebrada: Una experiencia única</h3>
+                        <p class="text-muted flex-grow-1">
+                            Descubrí los secretos de una de las festividades más coloridas y tradicionales de Argentina.
+                            El desentierro del diablo, las comparsas y la alegría del pueblo te van a dejar sin palabras.
+                            La Quebrada de Humahuaca vibra durante este período con música, danza y color.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="text-muted small">
+                                <i class="bi bi-calendar3 me-1"></i>15 de Febrero, 2026
+                            </span>
+                            <a href="#" class="btn btn-warning btn-sm">Leer más →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="noticia normal" data-cat="gastronomia">
+                    <img src="assets/ruta-empanadas.jpg" alt="Empanadas Jujeñas">
+                    <div class="contenido-noticia">
+                        <span class="tag-blog tag-gastronomia">
+                            <i class="fa-solid fa-utensils me-1"></i>Gastronomía
+                        </span>
+                        <h3 class="fw-bold mt-2">Ruta de la Empanada Jujeña</h3>
+                        <p class="text-muted flex-grow-1">Un recorrido por los mejores sabores locales.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="text-muted small"><i class="bi bi-calendar3 me-1"></i>3 de Marzo, 2026</span>
+                            <a href="#" class="btn btn-warning btn-sm">Leer más →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="noticia normal" data-cat="novedades">
+                    <img src="assets/tren-solar.jpg" alt="Tren Solar">
+                    <div class="contenido-noticia">
+                        <span class="tag-blog tag-novedades">
+                            <i class="bi bi-newspaper me-1"></i>Novedades
+                        </span>
+                        <h3 class="fw-bold mt-2">Inauguración del Tren Solar</h3>
+                        <p class="text-muted flex-grow-1">El primer tren turístico a batería de Latinoamérica ya está en marcha.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="text-muted small"><i class="bi bi-calendar3 me-1"></i>10 de Abril, 2026</span>
+                            <a href="#" class="btn btn-warning btn-sm">Leer más →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="noticia normal" data-cat="cultura">
+                    <img src="assets/tejido-telar.jpg" alt="Tejido en Telar">
+                    <div class="contenido-noticia">
+                        <span class="tag-blog tag-cultura">
+                            <i class="bi bi-building me-1"></i>Cultura
+                        </span>
+                        <h3 class="fw-bold mt-2">El Arte del Tejido en Telar</h3>
+                        <p class="text-muted flex-grow-1">Conocé a las artesanas que mantienen viva la tradición andina.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="text-muted small"><i class="bi bi-calendar3 me-1"></i>20 de Abril, 2026</span>
+                            <a href="#" class="btn btn-warning btn-sm">Leer más →</a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+            <div id="sin-resultados" class="text-center py-5 d-none">
+                <i class="bi bi-search display-4 text-muted"></i>
+                <p class="text-muted mt-3">No hay artículos en esta categoría todavía.</p>
+            </div>
+
+            <section class="mt-5 pt-4 border-top">
+                <h3 class="fw-bold mb-4">
+                    <i class="bi bi-chat-dots text-warning me-2"></i>
+                    Comentarios (<span id="contador-comentarios">2</span>)
+                </h3>
+
+                <div id="lista-comentarios">
+
+                    <div class="d-flex gap-3 mb-4">
+                        <div class="avatar-css flex-shrink-0" style="background-color:#e67e22">MG</div>
+                        <div class="flex-grow-1">
+                            <div class="bg-light rounded p-3">
+                                <h6 class="fw-bold mb-1">
+                                    Martín Gómez
+                                    <small class="text-muted fw-normal ms-2">
+                                        <i class="bi bi-clock me-1"></i>hace 2 horas
+                                    </small>
+                                </h6>
+                                <p class="mb-0 text-muted">¡Qué increíble artículo! Me dieron muchas ganas de ir al carnaval el próximo año en Tilcara.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex gap-3 mb-4">
+                        <div class="avatar-css flex-shrink-0" style="background-color:#27ae60">SL</div>
+                        <div class="flex-grow-1">
+                            <div class="bg-light rounded p-3">
+                                <h6 class="fw-bold mb-1">
+                                    Sofía López
+                                    <small class="text-muted fw-normal ms-2">
+                                        <i class="bi bi-clock me-1"></i>hace 5 horas
+                                    </small>
+                                </h6>
+                                <p class="mb-0 text-muted">Excelente información. ¿Saben si hay que reservar alojamiento con mucha anticipación?</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="card border-0 shadow-sm p-4 mt-4">
+                    <h5 class="fw-bold mb-3">
+                        <i class="bi bi-pencil-square text-warning me-2"></i>Dejá tu comentario
+                    </h5>
+                    <div class="mb-3">
+                        <label for="nombre-comentario" class="form-label">Tu nombre</label>
+                        <input type="text" class="form-control" id="nombre-comentario"
+                               placeholder="Ej: Juan García" maxlength="50">
+                    </div>
+                    <div class="mb-3">
+                        <label for="nuevo-comentario" class="form-label">Tu comentario *</label>
+                        <textarea class="form-control" id="nuevo-comentario"
+                                  rows="3" placeholder="Escribí tu opinión aquí..."
+                                  maxlength="300"></textarea>
+                        <div class="text-end text-muted small mt-1">
+                            <span id="char-comentario">0</span>/300
+                        </div>
+                    </div>
+                    <button class="btn btn-warning fw-bold" id="btn-publicar">
+                        <i class="bi bi-send me-2"></i>Publicar Comentario
+                    </button>
+                    <small id="error-comentario" class="text-danger mt-2 d-none">Por favor escribí un comentario.</small>
+                </div>
+
+            </section>
+
         </div>
+    </main>
 
+    <footer class="bg-footer text-white pt-5 pb-3">
+        <div class="container">
+            <div class="row g-5 mb-4">
+                <div class="col-12 col-md-4">
+                    <h5 class="text-warning fw-bold mb-3"><i class="bi bi-envelope-heart me-2"></i>Newsletter</h5>
+                    <form id="form-newsletter" class="d-flex gap-2" novalidate>
+                        <input type="email" id="email-newsletter" class="form-control form-control-sm" placeholder="tu@correo.com" required>
+                        <button type="submit" class="btn btn-warning btn-sm px-3"><i class="bi bi-send-fill"></i></button>
+                    </form>
+                    <small id="msg-newsletter" class="text-success mt-2 d-none"><i class="bi bi-check-circle me-1"></i>¡Suscrito!</small>
+                </div>
+                <div class="col-12 col-md-4">
+                    <h5 class="text-warning fw-bold mb-3"><i class="bi bi-share me-2"></i>Síguenos</h5>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="sprite-icon sprite-facebook" title="Facebook"></a>
+                        <a href="#" class="sprite-icon sprite-instagram" title="Instagram"></a>
+                        <a href="#" class="sprite-icon sprite-twitter" title="Twitter"></a>
+                        <a href="contacto.html" class="sprite-icon sprite-email" title="Email"></a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <h5 class="text-warning fw-bold mb-3"><i class="bi bi-geo-alt me-2"></i>Ubicación</h5>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115865.71714909831!2d-65.372545!3d-24.1832629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941b08e2f80c6533%3A0xcb1b51de9580a8eb!2sSan%20Salvador%20de%20Jujuy%2C%20Jujuy!5e0!3m2!1ses-419!2sar!4v1700000000000!5m2!1ses-419!2sar"
+                        class="w-100 rounded" height="160" style="border:0;" allowfullscreen loading="lazy"></iframe>
+                </div>
+            </div>
+            <hr class="border-secondary">
+            <p class="text-center text-white-50 mb-0 small">&copy; 2026 TurismoWeb Jujuy — Facultad de Ingeniería, UNJu.</p>
+        </div>
     </footer>
 
-</body>
+    <button id="btn-top" class="btn btn-warning rounded-circle shadow"
+            style="display:none;position:fixed;bottom:25px;right:25px;width:48px;height:48px;z-index:999;">
+        <i class="bi bi-arrow-up-short fs-4"></i>
+    </button>
 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        $(function () {
+
+            /* -----------------------------------------------
+             * ANIMACIONES AL HACER SCROLL (jQuery)
+             * Cuando una noticia entra en el viewport, se hace
+             * visible con una transición CSS.
+             * jQuery detecta el evento 'scroll' y calcula las posiciones.
+             * ----------------------------------------------- */
+            function verificarVisibilidad() {
+                // scrollTop() → cuánto scrolleó el usuario
+                // height()    → altura de la ventana del browser (viewport)
+                const scrollAbajo = $(window).scrollTop() + $(window).height();
+
+                // .each() → itera sobre cada elemento .noticia
+                $('.noticia').each(function () {
+                    // offset().top → posición Y del elemento en la PÁGINA (no en el viewport)
+                    const posicionElemento = $(this).offset().top;
+
+                    // Si el tope del elemento está dentro del viewport (con 80px de margen)
+                    if (posicionElemento < scrollAbajo - 80) {
+                        $(this).addClass('visible');  // Activa la transición CSS
+                    }
+                });
+            }
+
+            // Escuchar el evento scroll
+            $(window).on('scroll', verificarVisibilidad);
+            // Verificar al cargar la página (los elementos ya visibles al entrar)
+            verificarVisibilidad();
+
+            /* -----------------------------------------------
+             * FILTROS POR CATEGORÍA DEL BLOG (jQuery)
+             * Igual técnica que Destinos: .hide() / .show()
+             * ----------------------------------------------- */
+            $('.btn-categoria').on('click', function () {
+                // Actualizar estilos de los botones
+                $('.btn-categoria').removeClass('btn-warning btn-dark btn-success')
+                                  .addClass('btn-outline-secondary');
+                $(this).removeClass('btn-outline-secondary');
+
+                const cat = $(this).data('cat');
+
+                // Colorear según categoría
+                if (cat === 'todos')       $(this).addClass('btn-warning');
+                else if (cat === 'cultura')     $(this).addClass('btn-dark');
+                else if (cat === 'gastronomia') $(this).addClass('btn-warning');
+                else if (cat === 'novedades')   $(this).addClass('btn-success');
+
+                if (cat === 'todos') {
+                    // Mostrar todos
+                    $('.noticia').show();
+                    $('#sin-resultados').addClass('d-none');
+                } else {
+                    // .filter('[data-cat="..."]') → seleccionar por atributo
+                    $('.noticia').hide();
+                    const $visibles = $('.noticia[data-cat="' + cat + '"]').show();
+
+                    if ($visibles.length === 0) {
+                        $('#sin-resultados').removeClass('d-none');
+                    } else {
+                        $('#sin-resultados').addClass('d-none');
+                        // Verificar visibilidad de los nuevos elementos
+                        verificarVisibilidad();
+                    }
+                }
+            });
+
+            /* -----------------------------------------------
+             * COMENTARIOS SIMULADOS (jQuery)
+             * El usuario escribe y el comentario aparece en el DOM
+             * SANITIZACIÓN: el texto se escapa antes de insertarlo
+             * ----------------------------------------------- */
+
+            // Contador de caracteres del comentario
+            $('#nuevo-comentario').on('input', function () {
+                $('#char-comentario').text($(this).val().length);
+            });
+
+            // Publicar comentario
+            $('#btn-publicar').on('click', function () {
+                const texto = $('#nuevo-comentario').val().trim();
+                const nombre = $('#nombre-comentario').val().trim() || 'Anónimo';
+
+                if (!texto) {
+                    $('#error-comentario').removeClass('d-none');
+                    return;
+                }
+                $('#error-comentario').addClass('d-none');
+
+                // SANITIZACIÓN del texto antes de mostrarlo en el HTML
+                // Evita que un usuario malintencionado inserte código HTML/JS
+                const textoSanitizado  = sanitizarTexto(texto);
+                const nombreSanitizado = sanitizarTexto(nombre);
+
+                // Generar iniciales del avatar
+                const iniciales = nombre.split(' ')
+                                        .slice(0, 2)
+                                        .map(p => p[0].toUpperCase())
+                                        .join('');
+
+                // Color aleatorio para el avatar
+                const colores = ['#e67e22', '#27ae60', '#e74c3c', '#3498db', '#9b59b6'];
+                const color   = colores[Math.floor(Math.random() * colores.length)];
+
+                // Construir HTML del nuevo comentario
+                // NOTA: usamos .text() internamente para el texto del usuario (seguro)
+                // Solo usamos HTML para la estructura (que nosotros controlamos)
+                const $comentario = $('<div class="d-flex gap-3 mb-4 animate__animated"></div>');
+                const $avatar = $('<div class="avatar-css flex-shrink-0"></div>')
+                                .text(iniciales || 'U')
+                                .css('background-color', color);
+                const $contenido = $('<div class="flex-grow-1"></div>');
+                const $burbuja   = $('<div class="bg-light rounded p-3"></div>');
+                const $titulo    = $('<h6 class="fw-bold mb-1"></h6>');
+                const $hora      = $('<small class="text-muted fw-normal ms-2"></small>');
+                const $parrafo   = $('<p class="mb-0 text-muted"></p>');
+
+                // Asignar texto de forma SEGURA con .text() (NO con .html())
+                $titulo.text(nombreSanitizado);
+                $hora.html('<i class="bi bi-clock me-1"></i>ahora mismo');
+                $parrafo.text(textoSanitizado);   // .text() escapa el HTML automáticamente
+
+                $titulo.append($hora);
+                $burbuja.append($titulo, $parrafo);
+                $contenido.append($burbuja);
+                $comentario.append($avatar, $contenido);
+
+                // Insertar al final de la lista con fadeIn
+                $comentario.hide();
+                $('#lista-comentarios').append($comentario);
+                $comentario.fadeIn(400);
+
+                // Actualizar contador
+                const total = $('#lista-comentarios .d-flex').length;
+                $('#contador-comentarios').text(total);
+
+                // Limpiar formulario
+                $('#nuevo-comentario').val('');
+                $('#nombre-comentario').val('');
+                $('#char-comentario').text('0');
+
+                // Scroll suave al nuevo comentario
+                $('html, body').animate({
+                    scrollTop: $comentario.offset().top - 100
+                }, 500);
+            });
+
+        });
+    </script>
+
+</body>
 </html>

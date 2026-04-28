@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo de Seguridad — TurismoWeb Jujuy</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/sprites.css">
+
+    <style>
+        /* =====================================================
+           ESTILOS ESPECÍFICOS DEL MÓDULO DE PHISHING
+           ===================================================== */
+
+        /* Banner de advertencia educativa */
+        .banner-educativo {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 0.75rem;
+            text-align: center;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        /* Email falso simulado */
+        .email-falso {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            font-size: 0.9rem;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .email-header-barra {
+            background: #f1f3f4;
+            padding: 0.75rem 1.25rem;
+            border-bottom: 1px solid #dee2e6;
+            font-size: 0.8rem;
+        }
+
+        .email-body-content {
+            background: white;
+            padding: 2rem;
+        }
+
+        /* Elementos que el usuario puede clickear para detectar errores */
+        .sospechoso {
+            cursor: pointer;
+            text-decoration: underline dotted #e74c3c;
+            background-color: rgba(231, 76, 60, 0.05);
+            border-radius: 3px;
+            padding: 1px 3px;
+            transition: background-color 0.2s;
+            position: relative;
+        }
+
+        .sospechoso:hover {
+            background-color: rgba(231, 76, 60, 0.15);
+        }
+
+        /* Estado: detectado (click del usuario) */
+        .sospechoso.detectado {
+            background-color: rgba(231, 76, 60, 0.25);
+            text-decoration: underline solid #e74c3c;
+            outline: 2px solid #e74c3c;
+            border-radius: 3px;
+        }
+
+        /* Estado: revelado (botón revelar todo) */
+        .sospechoso.revelado {
+            background-color: rgba(231, 76, 60, 0.3);
+            outline: 2px dashed #c0392b;
+        }
+
+        /* Marcador visual de errores */
+        .marcador {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #e74c3c;
+            color: white;
+            font-size: 0.65rem;
+            font-weight: bold;
+            text-align: center;
+            line-height: 20px;
+            vertical-align: super;
+            margin-left: 2px;
+        }
+
+        /* Panel de puntaje */
+        .panel-puntaje {
+            position: sticky;
+            top: 80px;
+        }
+
+        /* Quiz de preguntas */
+        .quiz-opcion {
+            cursor: pointer;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            transition: all 0.2s;
+            margin-bottom: 0.5rem;
+        }
+
+        .quiz-opcion:hover {
+            border-color: #e67e22;
+            background-color: #fff3e0;
+        }
+
+        .quiz-opcion.correcta {
+            border-color: #27ae60;
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .quiz-opcion.incorrecta {
+            border-color: #dc3545;
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="banner-educativo">
+        <i class="bi bi-shield-fill-exclamation me-2"></i>
+        MÓDULO EDUCATIVO — Esta es una simulación de phishing con fines de aprendizaje. NO se recopilan datos reales.
+        <i class="bi bi-shield-fill-exclamation ms-2"></i>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+        <div class="container">
+            <a class="navbar-brand text-white fw-bold" href="index.html">
+                <i class="bi bi-compass-fill text-warning me-1"></i>TurismoWeb
+            </a>
+            <button class="navbar-toggler border-0" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#menuPrincipal">
+                <i class="bi bi-list text-white fs-2"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="menuPrincipal">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+                    <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-house-door me-1"></i>Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="destinos.html"><i class="bi bi-map me-1"></i>Destinos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="agencias.html"><i class="fa-solid fa-building-user me-1"></i>Agencias</a></li>
+                    <li class="nav-item"><a class="nav-link" href="precios.html"><i class="fa-solid fa-tags me-1"></i>Precios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html"><i class="bi bi-journal-text me-1"></i>Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacto.html"><i class="bi bi-envelope me-1"></i>Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-warning btn-sm text-dark px-3 fw-bold active" href="phishing.html"><i class="bi bi-shield-exclamation me-1"></i>Seguridad</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="py-5 text-center" style="background: linear-gradient(135deg, #2c3e50, #e74c3c); color:white;">
+        <div class="container">
+            <div class="mb-3">
+                <i class="bi bi-shield-slash" style="font-size:4rem; opacity:0.9;"></i>
+            </div>
+            <h1 class="display-5 fw-bold">Módulo Educativo: Phishing</h1>
+            <p class="lead opacity-75">
+                Aprendé a identificar correos electrónicos fraudulentos antes de ser víctima de uno.
+            </p>
+            
+            <button class="btn btn-warning btn-lg fw-bold mt-2" data-bs-toggle="modal" data-bs-target="#modalIntroduccion">
+                <i class="bi bi-play-circle me-2"></i>Comenzar Simulación de Phishing
+            </button>
+        </div>
+    </header>
+
+    <main class="py-5">
+        <div class="container">
+
+            <section class="mb-5">
+                <div class="row g-4 align-items-center">
+                    <div class="col-12 col-md-7">
+                        <h2 class="fw-bold mb-3">
+                            <i class="bi bi-question-circle text-warning me-2"></i>¿Qué es el Phishing?
+                        </h2>
+                        <p>
+                            El <strong>phishing</strong> (del inglés "fishing" = pescar) es un tipo de
+                            <strong>ataque de ingeniería social</strong> donde los ciberdelincuentes se hacen
+                            pasar por entidades legítimas (bancos, empresas, organismos del Estado) para
+                            <strong>engañarte y robarte información personal</strong> como contraseñas, datos
+                            bancarios o documentos de identidad.
+                        </p>
+                        <p>
+                            El medio más común es el <strong>correo electrónico falso</strong>, pero también
+                            puede ocurrir por SMS (smishing), llamadas telefónicas (vishing) o redes sociales.
+                        </p>
+
+                        <h5 class="fw-bold mt-4 mb-3">
+                            <i class="bi bi-exclamation-triangle-fill text-danger me-2"></i>Señales de Fraude
+                        </h5>
+                        <div class="accordion" id="senalesAcordeon">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#senal1">
+                                        <i class="bi bi-envelope-x text-danger me-2"></i>1. Remitente sospechoso
+                                    </button>
+                                </h2>
+                                <div id="senal1" class="accordion-collapse collapse show" data-bs-parent="#senalesAcordeon">
+                                    <div class="accordion-body">
+                                        El correo viene de una dirección rara como <code>soporte@banco-seguro.xyz</code>
+                                        en lugar de <code>soporte@banco.com.ar</code>. Fijate siempre en el dominio
+                                        (lo que va después del @).
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#senal2">
+                                        <i class="bi bi-clock-history text-warning me-2"></i>2. Urgencia exagerada
+                                    </button>
+                                </h2>
+                                <div id="senal2" class="accordion-collapse collapse" data-bs-parent="#senalesAcordeon">
+                                    <div class="accordion-body">
+                                        Frases como "¡Su cuenta será bloqueada en 24 horas!" o "Acción inmediata
+                                        requerida" buscan generarte pánico para que actúes sin pensar.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#senal3">
+                                        <i class="bi bi-link-45deg text-primary me-2"></i>3. Links engañosos
+                                    </button>
+                                </h2>
+                                <div id="senal3" class="accordion-collapse collapse" data-bs-parent="#senalesAcordeon">
+                                    <div class="accordion-body">
+                                        El texto del link dice "www.banco.com" pero si le pasás el mouse, la URL real
+                                        es <code>www.banco-falso.ru/login</code>. SIEMPRE verificá la URL real.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#senal4">
+                                        <i class="bi bi-spellcheck text-info me-2"></i>4. Errores ortográficos
+                                    </button>
+                                </h2>
+                                <div id="senal4" class="accordion-collapse collapse" data-bs-parent="#senalesAcordeon">
+                                    <div class="accordion-body">
+                                        Las organizaciones serias revisan sus comunicaciones. Errores de tipeo,
+                                        palabras mal escritas o frases raras son señales de un mensaje falso.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-5 text-center">
+                        <div class="p-4 rounded-3" style="background:#fff3cd">
+                            <i class="bi bi-fish" style="font-size:5rem; color:#e67e22;"></i>
+                            <h4 class="fw-bold mt-3">¿Sabías que...?</h4>
+                            <p class="text-muted">
+                                El 91% de los ciberataques comienzan con un correo de phishing.
+                                <br><small>(Fuente: CISA — Cybersecurity & Infrastructure Security Agency)</small>
+                            </p>
+                            <div class="d-flex justify-content-center gap-3 mt-3">
+                                <div class="text-center">
+                                    <div class="fs-3 fw-bold text-danger">91%</div>
+                                    <small class="text-muted">Ataques por email</small>
+                                </div>
+                                <div class="text-center">
+                                    <div class="fs-3 fw-bold text-warning">$17,700</div>
+                                    <small class="text-muted">Pérdidas/min (USD)</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-5">
+                <div class="row g-4">
+
+                    <div class="col-12 col-lg-8">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h3 class="fw-bold mb-0">
+                                <i class="bi bi-envelope-open text-danger me-2"></i>
+                                Ejercicio: Encontrá los errores
+                            </h3>
+                            <span class="badge bg-danger">
+                                <span id="errores-detectados">0</span>/5 encontrados
+                            </span>
+                        </div>
+                        <p class="text-muted small mb-3">
+                            <i class="bi bi-hand-index me-1"></i>
+                            <strong>Instrucción:</strong> Hacé click en los elementos que te parezcan sospechosos.
+                            Encontrá los 5 errores de phishing escondidos en este email.
+                        </p>
+
+                        <div class="email-falso">
+
+                            <div class="email-header-barra">
+                                <div class="d-flex gap-3 flex-wrap">
+                                    <div>
+                                        <strong>De:</strong>
+                                        
+                                        <span class="sospechoso" data-error="1"
+                                              data-explicacion="❌ DOMINIO FALSO: 'banco-nacion.ar.support-clientes.com' NO es el dominio oficial del Banco Nación. El dominio real es 'bna.com.ar'. Los atacantes agregan palabras al dominio para confundir.">
+                                            soporte@banco-nacion.ar.support-clientes.com
+                                        </span>
+                                    </div>
+                                    <div><strong>Para:</strong> tu.correo@gmail.com</div>
+                                    <div>
+                                        <strong>Asunto:</strong>
+                                        
+                                        <span class="sospechoso" data-error="2"
+                                              data-explicacion="❌ URGENCIA FALSA: 'URGENTE: Su cuenta será bloqueada' es una táctica de manipulación. Los bancos reales NO bloquean cuentas sin aviso previo ni usan mayúsculas alarmistas en el asunto.">
+                                            ⚠️ URGENTE: Su cuenta será bloqueada en 24hs
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="email-body-content">
+
+                                <p>Estimado/a cliente:</p>
+
+                                <p>
+                                    Hemos detectado actividad sospechosa en su cuenta. Por su seguridad,
+                                    es necesario que
+                                    
+                                    <span class="sospechoso" data-error="3"
+                                          data-explicacion="❌ LINK ENGAÑOSO: El texto dice 'verifique su identidad' pero el link real lleva a 'banco-login.ru' (Rusia), NO al sitio del Banco Nación. SIEMPRE pasá el mouse sobre un link antes de hacer click para ver la URL real.">
+                                        <a href="#" onclick="return false;" style="color:#0066cc;">verifique su identidad</a>
+                                    </span>
+                                    haciendo click en el botón a continuación.
+                                </p>
+
+                                <div class="text-center my-4">
+                                    
+                                    <span class="sospechoso d-inline-block" data-error="4"
+                                          data-explicacion="❌ URL FALSA: Al pasar el mouse sobre este botón, la URL real sería 'http://banco-login.ru/verificar?cuenta=TUMAIL' (dominio .ru = Rusia). Los bancos argentinos usan dominios .com.ar o .ar, y SIEMPRE usan HTTPS (con candadito).">
+                                        <button type="button" class="btn btn-primary btn-lg" onclick="return false;">
+                                            <i class="bi bi-lock me-2"></i>Verificar mi identidad ahora
+                                        </button>
+                                    </span>
+                                    <div class="small text-muted mt-1">
+                                        (Link real oculto: http://banco-login.ru/verificar)
+                                    </div>
+                                </div>
+
+                                <p>
+                                    Si no realizaste esta solicitud, ignorá este mensaje.
+                                    Tu cuenta será
+                                    
+                                    <span class="sospechoso" data-error="5"
+                                          data-explicacion="❌ AMENAZA FALSA: 'suspendida permanentemente en 24 horas' es una mentira diseñada para que actúes por miedo, sin verificar si el email es legítimo. Los bancos NUNCA amenazan de esta manera por email.">
+                                        <strong>suspendida permanentemente en 24 horas</strong>
+                                    </span>
+                                    si no se verifica.
+                                </p>
+
+                                <hr>
+                                <p class="text-muted small">
+                                    Banco Nación Argentina — Soporte Técnico
+                                    <br>© 2026 BNA. Todos los derechos reservados.
+                                </p>
+                                
+                            </div>
+
+                        </div>
+
+                        <div class="d-flex gap-3 mt-3 flex-wrap">
+                            <button class="btn btn-outline-danger" id="btn-revelar-todos">
+                                <i class="bi bi-eye me-2"></i>Revelar Todos los Errores
+                            </button>
+                            <button class="btn btn-outline-secondary" id="btn-reiniciar">
+                                <i class="bi bi-arrow-clockwise me-2"></i>Reiniciar Ejercicio
+                            </button>
+                        </div>
+
+                        <div id="panel-explicacion" class="alert alert-danger mt-4 d-none">
+                            <h6 class="fw-bold mb-1">
+                                <i class="bi bi-exclamation-triangle-fill me-2"></i>Error detectado:
+                            </h6>
+                            <p class="mb-0" id="texto-explicacion"></p>
+                        </div>
+
+                    </div>
+
+                    <div class="col-12 col-lg-4">
+                        <div class="panel-puntaje card border-0 shadow-sm">
+                            <div class="card-header text-white text-center" style="background:#2c3e50">
+                                <h5 class="mb-0"><i class="bi bi-trophy me-2 text-warning"></i>Tu Progreso</h5>
+                            </div>
+                            <div class="card-body text-center">
+                                
+                                <div class="display-3 fw-bold text-danger mb-2" id="puntaje-numero">0</div>
+                                <p class="text-muted">errores encontrados de 5</p>
+
+                                <div class="text-start mt-3">
+                                    <p class="fw-bold small text-muted mb-2">ERRORES A ENCONTRAR:</p>
+                                    <div class="item-error d-flex align-items-center gap-2 mb-2" id="item-1">
+                                        <i class="bi bi-circle text-muted fs-5" id="icono-1"></i>
+                                        <span class="small">Remitente/dominio falso</span>
+                                    </div>
+                                    <div class="item-error d-flex align-items-center gap-2 mb-2" id="item-2">
+                                        <i class="bi bi-circle text-muted fs-5" id="icono-2"></i>
+                                        <span class="small">Asunto alarmista</span>
+                                    </div>
+                                    <div class="item-error d-flex align-items-center gap-2 mb-2" id="item-3">
+                                        <i class="bi bi-circle text-muted fs-5" id="icono-3"></i>
+                                        <span class="small">Link engañoso en el texto</span>
+                                    </div>
+                                    <div class="item-error d-flex align-items-center gap-2 mb-2" id="item-4">
+                                        <i class="bi bi-circle text-muted fs-5" id="icono-4"></i>
+                                        <span class="small">Botón con URL falsa</span>
+                                    </div>
+                                    <div class="item-error d-flex align-items-center gap-2 mb-2" id="item-5">
+                                        <i class="bi bi-circle text-muted fs-5" id="icono-5"></i>
+                                        <span class="small">Amenaza de bloqueo</span>
+                                    </div>
+                                </div>
+
+                                <div id="mensaje-completado" class="alert alert-success mt-3 d-none">
+                                    <i class="bi bi-check-circle-fill me-2"></i>
+                                    <strong>¡Excelente!</strong> Encontraste todos los errores.
+                                    ¡Estás protegido contra el phishing!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="mb-5 py-4 px-4 rounded-3" style="background:#f8f9fa">
+                <h3 class="fw-bold mb-4 text-center">
+                    <i class="bi bi-patch-question text-warning me-2"></i>Quiz: ¿Qué harías en esta situación?
+                </h3>
+
+                <div class="row g-4">
+
+                    <div class="col-12 col-md-6">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body">
+                                <p class="fw-bold">1. Recibís un email de tu "banco" pidiendo tus datos porque actualizaron el sistema. ¿Qué hacés?</p>
+                                <div class="quiz-opcion" data-correcto="false" data-pregunta="1">
+                                    <i class="bi bi-circle me-2"></i>Ingreso mis datos porque el banco lo pide
+                                </div>
+                                <div class="quiz-opcion" data-correcto="true" data-pregunta="1">
+                                    <i class="bi bi-circle me-2"></i>Llamo al banco por el número oficial del sitio web y verifico
+                                </div>
+                                <div class="quiz-opcion" data-correcto="false" data-pregunta="1">
+                                    <i class="bi bi-circle me-2"></i>Reenvío el email a mis contactos para alertarlos
+                                </div>
+                                <div class="feedback-quiz mt-2 d-none small"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body">
+                                <p class="fw-bold">2. Un email tiene el logo de TurismoWeb pero viene de "info@turismoweb-oferta.xyz". ¿Es legítimo?</p>
+                                <div class="quiz-opcion" data-correcto="false" data-pregunta="2">
+                                    <i class="bi bi-circle me-2"></i>Sí, tiene el logo correcto, es de ellos
+                                </div>
+                                <div class="quiz-opcion" data-correcto="true" data-pregunta="2">
+                                    <i class="bi bi-circle me-2"></i>No, el dominio '.xyz' no corresponde al sitio oficial
+                                </div>
+                                <div class="quiz-opcion" data-correcto="false" data-pregunta="2">
+                                    <i class="bi bi-circle me-2"></i>No sé, lo abro igual para ver de qué se trata
+                                </div>
+                                <div class="feedback-quiz mt-2 d-none small"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section>
+                <h3 class="fw-bold text-center mb-4">
+                    <i class="bi bi-shield-check text-success me-2"></i>¿Cómo protegerte?
+                </h3>
+                <div class="row g-4">
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="card border-0 bg-light text-center p-3 h-100">
+                            <i class="bi bi-search display-5 text-primary mb-3"></i>
+                            <h6 class="fw-bold">Verificá el dominio</h6>
+                            <p class="text-muted small">Antes de hacer click en cualquier link, pasá el mouse para ver la URL real.</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="card border-0 bg-light text-center p-3 h-100">
+                            <i class="bi bi-lock-fill display-5 text-success mb-3"></i>
+                            <h6 class="fw-bold">HTTPS siempre</h6>
+                            <p class="text-muted small">Los sitios legítimos usan HTTPS (candadito verde). Si no tiene, NO ingreses datos.</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="card border-0 bg-light text-center p-3 h-100">
+                            <i class="bi bi-telephone-fill display-5 text-warning mb-3"></i>
+                            <h6 class="fw-bold">Llamá antes de actuar</h6>
+                            <p class="text-muted small">Ante cualquier duda, llamá a la empresa por el número oficial (NO el del email).</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="card border-0 bg-light text-center p-3 h-100">
+                            <i class="bi bi-key-fill display-5 text-danger mb-3"></i>
+                            <h6 class="fw-bold">Contraseñas únicas</h6>
+                            <p class="text-muted small">Usá contraseñas diferentes en cada servicio. Activá el doble factor (2FA).</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <div class="modal fade" id="modalIntroduccion" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header" style="background:#2c3e50; color:white;">
+                    <h5 class="modal-title fw-bold">
+                        <i class="bi bi-shield-exclamation me-2 text-warning"></i>
+                        Instrucciones del Módulo Educativo
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-warning d-flex gap-3">
+                        <i class="bi bi-exclamation-triangle-fill fs-4 flex-shrink-0"></i>
+                        <div>
+                            <strong>¡Importante!</strong> Esta es una simulación <strong>completamente educativa</strong>.
+                            No se recopilan datos reales. El email que verás a continuación es <em>ficticio</em>
+                            y está diseñado para enseñar a detectar phishing.
+                        </div>
+                    </div>
+
+                    <h6 class="fw-bold mt-3">¿Cómo funciona?</h6>
+                    <ol>
+                        <li>Se muestra un email falso que simula un intento de phishing.</li>
+                        <li>Tu tarea es <strong>hacer click</strong> en todos los elementos sospechosos que encuentres.</li>
+                        <li>Al hacer click, verás una explicación de por qué ese elemento es peligroso.</li>
+                        <li>Hay <strong>5 errores</strong> escondidos en el email. ¡Encontralos todos!</li>
+                    </ol>
+
+                    <h6 class="fw-bold mt-3">Señales a buscar:</h6>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-check2-circle text-danger me-2"></i>Dominios de correo sospechosos</li>
+                        <li><i class="bi bi-check2-circle text-danger me-2"></i>Mensajes de urgencia o amenazas</li>
+                        <li><i class="bi bi-check2-circle text-danger me-2"></i>Links que llevan a sitios diferentes</li>
+                        <li><i class="bi bi-check2-circle text-danger me-2"></i>Botones con URLs falsas</li>
+                        <li><i class="bi bi-check2-circle text-danger me-2"></i>Pedidos de información sensible</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-warning fw-bold" data-bs-dismiss="modal">
+                        <i class="bi bi-play-circle me-2"></i>¡Entendido! Comenzar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-footer text-white pt-5 pb-3">
+        <div class="container">
+            <div class="row g-5 mb-4">
+                <div class="col-12 col-md-4">
+                    <h5 class="text-warning fw-bold mb-3"><i class="bi bi-envelope-heart me-2"></i>Newsletter</h5>
+                    <form id="form-newsletter" class="d-flex gap-2" novalidate>
+                        <input type="email" id="email-newsletter" class="form-control form-control-sm" placeholder="tu@correo.com" required>
+                        <button type="submit" class="btn btn-warning btn-sm px-3"><i class="bi bi-send-fill"></i></button>
+                    </form>
+                    <small id="msg-newsletter" class="text-success mt-2 d-none"><i class="bi bi-check-circle me-1"></i>¡Suscrito!</small>
+                </div>
+                <div class="col-12 col-md-4">
+                    <h5 class="text-warning fw-bold mb-3"><i class="bi bi-share me-2"></i>Síguenos</h5>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="sprite-icon sprite-facebook" title="Facebook"></a>
+                        <a href="#" class="sprite-icon sprite-instagram" title="Instagram"></a>
+                        <a href="#" class="sprite-icon sprite-twitter" title="Twitter"></a>
+                        <a href="contacto.html" class="sprite-icon sprite-email" title="Email"></a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <h5 class="text-warning fw-bold mb-3"><i class="bi bi-geo-alt me-2"></i>Ubicación</h5>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115865.71714909831!2d-65.372545!3d-24.1832629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941b08e2f80c6533%3A0xcb1b51de9580a8eb!2sSan%20Salvador%20de%20Jujuy%2C%20Jujuy!5e0!3m2!1ses-419!2sar!4v1700000000000!5m2!1ses-419!2sar"
+                        class="w-100 rounded" height="160" style="border:0;" allowfullscreen loading="lazy"></iframe>
+                </div>
+            </div>
+            <hr class="border-secondary">
+            <p class="text-center text-white-50 mb-0 small">&copy; 2026 TurismoWeb Jujuy — Facultad de Ingeniería, UNJu.</p>
+        </div>
+    </footer>
+
+    <button id="btn-top" class="btn btn-warning rounded-circle shadow"
+            style="display:none;position:fixed;bottom:25px;right:25px;width:48px;height:48px;z-index:999;">
+        <i class="bi bi-arrow-up-short fs-4"></i>
+    </button>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        $(function () {
+
+            /* -----------------------------------------------
+             * EJERCICIO INTERACTIVO DE PHISHING (jQuery)
+             * Al hacer click en .sospechoso:
+             *   1. Se marca como detectado (.detectado)
+             *   2. Se muestra la explicación con feedback
+             *   3. Se actualiza el puntaje
+             *   4. Se actualiza la lista de items en el panel
+             * ----------------------------------------------- */
+
+            let erroresEncontrados = 0;
+            const totalErrores = 5;
+            // Objeto para rastrear qué errores ya fueron detectados
+            const detectados = {};
+
+            $('.sospechoso').on('click', function () {
+                const numeroError = $(this).data('error');
+                const explicacion = $(this).data('explicacion');
+
+                // Si ya fue detectado, solo mostrar la explicación
+                if (detectados[numeroError]) {
+                    mostrarExplicacion(explicacion);
+                    return;
+                }
+
+                // Marcar como detectado
+                detectados[numeroError] = true;
+                $(this).addClass('detectado');
+                erroresEncontrados++;
+
+                // Actualizar puntaje
+                $('#puntaje-numero').text(erroresEncontrados);
+                $('#errores-detectados').text(erroresEncontrados);
+
+                // Actualizar el icono en el panel lateral
+                // .removeClass() quita la clase anterior, .addClass() pone la nueva
+                $('#icono-' + numeroError)
+                    .removeClass('bi-circle text-muted')
+                    .addClass('bi-check-circle-fill text-success');
+
+                // Mostrar explicación
+                mostrarExplicacion(explicacion);
+
+                // ¿Completó el ejercicio?
+                if (erroresEncontrados === totalErrores) {
+                    setTimeout(function () {
+                        $('#mensaje-completado').removeClass('d-none');
+                    }, 500);
+                }
+            });
+
+            // Función para mostrar la explicación con fadeIn
+            function mostrarExplicacion(texto) {
+                $('#texto-explicacion').text(texto);
+                $('#panel-explicacion').removeClass('d-none').hide().fadeIn(400);
+            }
+
+            /* -----------------------------------------------
+             * BOTÓN "REVELAR TODOS LOS ERRORES" (jQuery)
+             * Recorre todos los .sospechoso y los marca
+             * ----------------------------------------------- */
+            $('#btn-revelar-todos').on('click', function () {
+                $('.sospechoso').each(function () {
+                    const n = $(this).data('error');
+                    if (!detectados[n]) {
+                        detectados[n] = true;
+                        erroresEncontrados++;
+                        $(this).addClass('revelado');
+                        $('#icono-' + n)
+                            .removeClass('bi-circle text-muted')
+                            .addClass('bi-exclamation-circle-fill text-warning');
+                    }
+                });
+                $('#puntaje-numero').text(erroresEncontrados);
+                $('#errores-detectados').text(erroresEncontrados);
+                $('#mensaje-completado').removeClass('d-none');
+                $('#panel-explicacion').addClass('d-none');
+            });
+
+            /* -----------------------------------------------
+             * BOTÓN "REINICIAR" (jQuery)
+             * Limpia todos los estados y vuelve al inicio
+             * ----------------------------------------------- */
+            $('#btn-reiniciar').on('click', function () {
+                // Quitar todas las clases de estado
+                $('.sospechoso').removeClass('detectado revelado');
+
+                // Resetear contadores
+                erroresEncontrados = 0;
+                Object.keys(detectados).forEach(k => delete detectados[k]);
+
+                // Actualizar UI
+                $('#puntaje-numero').text(0);
+                $('#errores-detectados').text(0);
+                $('#panel-explicacion').addClass('d-none');
+                $('#mensaje-completado').addClass('d-none');
+
+                // Resetear iconos del panel
+                for (let i = 1; i <= totalErrores; i++) {
+                    $('#icono-' + i)
+                        .removeClass('bi-check-circle-fill text-success bi-exclamation-circle-fill text-warning')
+                        .addClass('bi-circle text-muted');
+                }
+            });
+
+            /* -----------------------------------------------
+             * QUIZ DE RESPUESTAS (jQuery)
+             * .on('click', '.quiz-opcion') → event delegation
+             * Usa .data() para leer si la opción es correcta
+             * ----------------------------------------------- */
+            $(document).on('click', '.quiz-opcion', function () {
+                const $pregunta = $(this).closest('.card-body');
+                // Si ya fue respondida, no permitir más clicks
+                if ($pregunta.data('respondida')) return;
+                $pregunta.data('respondida', true);
+
+                // Deshabilitar todas las opciones de esta pregunta
+                $pregunta.find('.quiz-opcion').css('pointer-events', 'none');
+
+                const esCorrecta = $(this).data('correcto') === true;
+                const $feedback  = $pregunta.find('.feedback-quiz');
+
+                if (esCorrecta) {
+                    $(this).addClass('correcta');
+                    $(this).find('i').removeClass('bi-circle').addClass('bi-check-circle-fill');
+                    $feedback.removeClass('d-none').addClass('text-success')
+                             .html('<i class="bi bi-check-circle-fill me-1"></i>¡Correcto! Muy buen criterio.');
+                } else {
+                    $(this).addClass('incorrecta');
+                    $(this).find('i').removeClass('bi-circle').addClass('bi-x-circle-fill');
+                    // Marcar la correcta
+                    $pregunta.find('[data-correcto="true"]').addClass('correcta');
+                    $feedback.removeClass('d-none').addClass('text-danger')
+                             .html('<i class="bi bi-x-circle-fill me-1"></i>Incorrecto. La opción verde es la correcta.');
+                }
+                $feedback.hide().fadeIn(400);
+            });
+
+        });
+    </script>
+
+</body>
+</html>

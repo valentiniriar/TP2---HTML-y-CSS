@@ -3,109 +3,349 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Precios - Turismo Jujuy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precios — TurismoWeb Jujuy</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/sprites.css">
 </head>
 
 <body>
 
-    <header class="encabezado-principal">
-        <div class="logo">
-            <h1>TurismoWeb</h1>
-        </div>
-
-        <nav class="menu-navegacion">
-            <ul class="lista-menu">
-                <li class="item-menu"><a href="index.html">Inicio</a></li>
-                <li class="item-menu"><a href="destinos.html">Destinos</a></li>
-                <li class="item-menu"><a href="agencias.html">Agencias</a></li>
-                <li class="item-menu"><a href="precios.html">Precios</a></li>
-                <li class="item-menu"><a href="blog.html">Blog</a></li>
-                <li class="item-menu"><a href="contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main class="contenedor-precios">
-        <h2 class="titulo-seccion">Comparador de Paquetes</h2>
-
-        <table class="tabla-comparador">
-            <thead>
-                <tr>
-                    <th>Paquete</th>
-                    <th>Destinos Incluidos</th>
-                    <th>Alojamiento</th>
-                    <th>Precio Final</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Escapada Express</td>
-                    <td>Purmamarca y Tilcara</td>
-                    <td>Hostal 3 Estrellas</td>
-                    <td>
-                        $85.000
-                        <span class="tooltip" data-info="No incluye pasajes de avión">ℹ️</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Aventura Andina</td>
-                    <td>Salinas Grandes y Cerro de los 7 Colores</td>
-                    <td>Hotel Boutique</td>
-                    <td>
-                        $150.000
-                        <span class="tooltip" data-info="Incluye acceso ilimitado a excursiones">ℹ️</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Jujuy Total (VIP)</td>
-                    <td>Toda la Quebrada, Puna y Valles</td>
-                    <td>Hotel 5 Estrellas</td>
-                    <td>
-                        $320.000
-                        <span class="tooltip" data-info="Incluye comidas, traslados y guía privado">ℹ️</span>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </main>
-
-    <footer class="pie-pagina">
-
-        <div class="contenido-footer">
-
-            <div class="columna-footer">
-                <h3>Suscríbete al Newsletter</h3>
-                <form class="formulario-newsletter">
-                    <input type="email" placeholder="Ingresa tu correo" required>
-                    <button type="submit">Suscribirme</button>
-                </form>
-            </div>
-
-            <div class="columna-footer">
-                <h3>Síguenos</h3>
-                <ul class="redes-sociales">
-                    <li><a href="#">Facebook</a></li>
-                    <li><a href="#">Instagram</a></li>
-                    <li><a href="#">Twitter</a></li>
+    <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+        <div class="container">
+            <a class="navbar-brand text-white fw-bold" href="index.html">
+                <i class="bi bi-compass-fill text-warning me-1"></i>TurismoWeb
+            </a>
+            <button class="navbar-toggler border-0" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#menuPrincipal">
+                <i class="bi bi-list text-white fs-2"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="menuPrincipal">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+                    <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-house-door me-1"></i>Inicio</a></li>
+                    <li class="nav-item dropdown mega-dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"><i class="bi bi-map me-1"></i>Destinos</a>
+                        <div class="dropdown-menu mega-menu shadow-lg"><div class="container"><div class="row">
+                            <div class="col-md-4"><p class="mega-titulo"><i class="bi bi-funnel me-1"></i>Por Categoría</p>
+                                <a class="dropdown-item" href="destinos.html"><i class="bi bi-grid me-2 text-warning"></i>Todos</a>
+                                <a class="dropdown-item" href="destinos.html?filtro=cultural"><i class="bi bi-building me-2 text-primary"></i>Cultura e Historia</a>
+                                <a class="dropdown-item" href="destinos.html?filtro=naturaleza"><i class="bi bi-tree me-2 text-success"></i>Naturaleza</a>
+                                <a class="dropdown-item" href="destinos.html?filtro=aventura"><i class="bi bi-activity me-2 text-danger"></i>Aventura</a>
+                            </div>
+                            <div class="col-md-4"><p class="mega-titulo"><i class="bi bi-geo-alt me-1"></i>Por Región</p>
+                                <a class="dropdown-item" href="destinos.html"><i class="bi bi-pin-map me-2"></i>Quebrada de Humahuaca</a>
+                                <a class="dropdown-item" href="destinos.html"><i class="bi bi-pin-map me-2"></i>La Puna Jujeña</a>
+                            </div>
+                            <div class="col-md-4 d-none d-md-block"><p class="mega-titulo"><i class="bi bi-star me-1"></i>Destacados</p>
+                                <a class="dropdown-item" href="destinos.html"><i class="bi bi-award me-2 text-warning"></i>Purmamarca</a>
+                                <a class="dropdown-item" href="agencias.html"><i class="bi bi-building-check me-2"></i>Ver Agencias</a>
+                            </div>
+                        </div></div></div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="agencias.html"><i class="fa-solid fa-building-user me-1"></i>Agencias</a></li>
+                    <li class="nav-item"><a class="nav-link" href="precios.html"><i class="fa-solid fa-tags me-1"></i>Precios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html"><i class="bi bi-journal-text me-1"></i>Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacto.html"><i class="bi bi-envelope me-1"></i>Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-warning btn-sm text-dark px-3 fw-bold" href="phishing.html"><i class="bi bi-shield-exclamation me-1"></i>Seguridad</a></li>
                 </ul>
             </div>
+        </div>
+    </nav>
 
-            <div class="columna-footer">
-                <h3>Nuestra Ubicación</h3>
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115865.71714909831!2d-65.372545!3d-24.1832629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941b08e2f80c6533%3A0xcb1b51de9580a8eb!2sSan%20Salvador%20de%20Jujuy%2C%20Jujuy!5e0!3m2!1ses-419!2sar!4v1700000000000!5m2!1ses-419!2sar"
-                    width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    <header class="py-5 bg-seccion-alt text-center border-bottom">
+        <div class="container">
+            <h1 class="display-5 fw-bold">
+                <i class="fa-solid fa-tags text-warning me-2"></i>Precios y Paquetes
+            </h1>
+            <p class="lead text-muted">Compará nuestros planes y elegí el que mejor se adapta a vos.</p>
+        </div>
+    </header>
+
+    <main class="py-5">
+        <div class="container">
+
+            <h2 class="text-center mb-5 seccion-titulo">Nuestros Planes</h2>
+            <div class="row g-4 mb-5 justify-content-center">
+
+                <div class="col-12 col-md-4">
+                    <div class="card border-0 shadow text-center h-100">
+                        <div class="card-header bg-secondary text-white py-3">
+                            <i class="bi bi-backpack display-6"></i>
+                            <h4 class="fw-bold mt-2 mb-0">Escapada Express</h4>
+                        </div>
+                        <div class="card-body py-4">
+                            <div class="display-5 fw-bold text-dark mb-1">$85.000</div>
+                            <small class="text-muted">por persona</small>
+                            <hr>
+                            <ul class="list-unstyled text-start">
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Purmamarca y Tilcara</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Hostal 3 estrellas</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Guía incluido</li>
+                                <li class="mb-2 text-muted"><i class="bi bi-x-circle me-2"></i>Sin vuelo incluido</li>
+                                <li class="mb-2 text-muted"><i class="bi bi-x-circle me-2"></i>Sin comidas</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-transparent pb-4">
+                            <a href="contacto.html" class="btn btn-outline-secondary w-100">
+                                <i class="bi bi-send me-1"></i>Consultar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <div class="card border-warning shadow-lg text-center h-100" style="border-width:3px!important">
+                        <div class="card-header bg-warning py-3 position-relative">
+                            <span class="badge bg-danger position-absolute top-0 start-50 translate-middle">
+                                <i class="bi bi-star-fill me-1"></i>Más Popular
+                            </span>
+                            <i class="bi bi-mountain display-6 mt-2"></i>
+                            <h4 class="fw-bold mt-2 mb-0">Aventura Andina</h4>
+                        </div>
+                        <div class="card-body py-4">
+                            <div class="display-5 fw-bold text-warning mb-1">$150.000</div>
+                            <small class="text-muted">por persona</small>
+                            <hr>
+                            <ul class="list-unstyled text-start">
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Salinas Grandes y 7 Colores</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Hotel Boutique 4 estrellas</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Excursiones ilimitadas</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Desayuno incluido</li>
+                                <li class="mb-2 text-muted"><i class="bi bi-x-circle me-2"></i>Sin vuelo incluido</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-transparent pb-4">
+                            <a href="contacto.html" class="btn btn-warning w-100 fw-bold">
+                                <i class="bi bi-send me-1"></i>¡Reservar Ahora!
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <div class="card border-0 shadow text-center h-100">
+                        <div class="card-header text-white py-3" style="background:#2c3e50">
+                            <i class="bi bi-gem display-6"></i>
+                            <h4 class="fw-bold mt-2 mb-0">Jujuy Total VIP</h4>
+                        </div>
+                        <div class="card-body py-4">
+                            <div class="display-5 fw-bold text-dark mb-1">$320.000</div>
+                            <small class="text-muted">por persona</small>
+                            <hr>
+                            <ul class="list-unstyled text-start">
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Quebrada + Puna + Valles</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Hotel 5 estrellas</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Comidas incluidas</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Traslados privados</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Guía privado</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-transparent pb-4">
+                            <a href="contacto.html" class="btn w-100 text-white" style="background:#2c3e50">
+                                <i class="bi bi-send me-1"></i>Consultar VIP
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <h2 class="text-center mb-4 seccion-titulo">
+                <i class="bi bi-table text-warning me-2"></i>Tabla Comparativa Detallada
+            </h2>
+
+            <div class="table-responsive shadow rounded">
+                <table class="table align-middle mb-0" id="tabla-comparativa">
+                    <thead style="background-color: #e67e22; color: white;">
+                        <tr>
+                            <th class="py-3">
+                                <i class="bi bi-box me-1"></i>Paquete
+                            </th>
+                            <th>
+                                <i class="bi bi-geo me-1"></i>Destinos Incluidos
+                            </th>
+                            <th>
+                                <i class="bi bi-building me-1"></i>Alojamiento
+                            </th>
+                            <th>
+                                
+                                <i class="bi bi-currency-dollar me-1"></i>Precio Final
+                                <i class="bi bi-question-circle ms-1"
+                                   data-bs-toggle="tooltip"
+                                   data-bs-placement="top"
+                                   title="Los precios son por persona e incluyen impuestos."></i>
+                            </th>
+                            <th>
+                                <i class="bi bi-card-checklist me-1"></i>Incluye
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <strong>Escapada Express</strong>
+                                <span class="badge bg-secondary ms-2">Básico</span>
+                            </td>
+                            <td>Purmamarca y Tilcara</td>
+                            <td>Hostal 3 Estrellas</td>
+                            <td>
+                                <strong class="text-dark">$85.000 ARS</strong>
+                                
+                                <i class="bi bi-info-circle text-secondary ms-1"
+                                   data-bs-toggle="tooltip"
+                                   data-bs-placement="right"
+                                   title="No incluye pasajes de avión."></i>
+                            </td>
+                            <td>
+                                <span class="badge bg-success me-1">Guía</span>
+                            </td>
+                        </tr>
+                        <tr class="table-warning">
+                            <td>
+                                <strong>Aventura Andina</strong>
+                                <span class="badge bg-warning text-dark ms-2">Popular</span>
+                            </td>
+                            <td>Salinas Grandes y Cerro 7 Colores</td>
+                            <td>Hotel Boutique 4 Estrellas</td>
+                            <td>
+                                <strong class="text-dark">$150.000 ARS</strong>
+                                <i class="bi bi-info-circle text-warning ms-1"
+                                   data-bs-toggle="tooltip"
+                                   data-bs-placement="right"
+                                   title="Incluye acceso ilimitado a excursiones."></i>
+                            </td>
+                            <td>
+                                <span class="badge bg-success me-1">Guía</span>
+                                <span class="badge bg-info me-1">Desayuno</span>
+                                <span class="badge bg-primary">Excursiones</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Jujuy Total VIP</strong>
+                                <span class="badge ms-2 text-white" style="background:#2c3e50">VIP</span>
+                            </td>
+                            <td>Quebrada completa, Puna y Valles</td>
+                            <td>Hotel 5 Estrellas</td>
+                            <td>
+                                <strong class="text-dark">$320.000 ARS</strong>
+                                <i class="bi bi-info-circle text-dark ms-1"
+                                   data-bs-toggle="tooltip"
+                                   data-bs-placement="right"
+                                   title="Incluye comidas, traslados privados y guía personal."></i>
+                            </td>
+                            <td>
+                                <span class="badge bg-success me-1">Guía privado</span>
+                                <span class="badge bg-info me-1">Todas las comidas</span>
+                                <span class="badge bg-primary">Traslados</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="alert alert-info mt-4 d-flex gap-2">
+                <i class="bi bi-lightbulb-fill flex-shrink-0 mt-1"></i>
+                <div>
+                    <strong>Tip:</strong> Pasá el mouse sobre los íconos
+                    <i class="bi bi-info-circle"></i>
+                    para ver información adicional sobre cada paquete.
+                    Los precios pueden variar según la temporada.
+                </div>
             </div>
 
         </div>
+    </main>
 
-        <div class="derechos-autor">
-            <p>&copy; 2026 TurismoWeb Jujuy - APU. Todos los derechos reservados.</p>
+    <footer class="bg-footer text-white pt-5 pb-3">
+        <div class="container">
+            <div class="row g-5 mb-4">
+                <div class="col-12 col-md-4">
+                    <h5 class="text-warning fw-bold mb-3"><i class="bi bi-envelope-heart me-2"></i>Newsletter</h5>
+                    <form id="form-newsletter" class="d-flex gap-2" novalidate>
+                        <input type="email" id="email-newsletter" class="form-control form-control-sm" placeholder="tu@correo.com" required>
+                        <button type="submit" class="btn btn-warning btn-sm px-3"><i class="bi bi-send-fill"></i></button>
+                    </form>
+                    <small id="msg-newsletter" class="text-success mt-2 d-none"><i class="bi bi-check-circle me-1"></i>¡Suscrito!</small>
+                </div>
+                <div class="col-12 col-md-4">
+                    <h5 class="text-warning fw-bold mb-3"><i class="bi bi-share me-2"></i>Síguenos</h5>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="sprite-icon sprite-facebook" title="Facebook"></a>
+                        <a href="#" class="sprite-icon sprite-instagram" title="Instagram"></a>
+                        <a href="#" class="sprite-icon sprite-twitter" title="Twitter"></a>
+                        <a href="contacto.html" class="sprite-icon sprite-email" title="Email"></a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <h5 class="text-warning fw-bold mb-3"><i class="bi bi-geo-alt me-2"></i>Ubicación</h5>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115865.71714909831!2d-65.372545!3d-24.1832629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941b08e2f80c6533%3A0xcb1b51de9580a8eb!2sSan%20Salvador%20de%20Jujuy%2C%20Jujuy!5e0!3m2!1ses-419!2sar!4v1700000000000!5m2!1ses-419!2sar"
+                        class="w-100 rounded" height="160" style="border:0;" allowfullscreen loading="lazy"></iframe>
+                </div>
+            </div>
+            <hr class="border-secondary">
+            <p class="text-center text-white-50 mb-0 small">&copy; 2026 TurismoWeb Jujuy — Facultad de Ingeniería, UNJu.</p>
         </div>
-
     </footer>
 
-</body>
+    <button id="btn-top" class="btn btn-warning rounded-circle shadow"
+            style="display:none;position:fixed;bottom:25px;right:25px;width:48px;height:48px;z-index:999;">
+        <i class="bi bi-arrow-up-short fs-4"></i>
+    </button>
 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        $(function () {
+
+            /* -----------------------------------------------
+             * TOOLTIPS DE BOOTSTRAP inicializados con jQuery
+             * Bootstrap requiere inicializar los tooltips manualmente
+             * con JavaScript — no se activan solos con el atributo.
+             * querySelectorAll('[data-bs-toggle="tooltip"]') → selecciona
+             * todos los elementos que tienen ese atributo
+             * ----------------------------------------------- */
+            const tooltipElements = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+            tooltipElements.forEach(function (el) {
+                // Crear instancia de Tooltip de Bootstrap para cada elemento
+                new bootstrap.Tooltip(el, {
+                    trigger: 'hover focus'  // Mostrar al hover o al enfocar (accesibilidad)
+                });
+            });
+
+            /* -----------------------------------------------
+             * HOVER DINÁMICO en filas de la tabla (jQuery)
+             * .mouseenter() / .mouseleave() detectan el mouse
+             * .addClass() / .removeClass() cambian el estilo
+             * ----------------------------------------------- */
+            $('#tabla-comparativa tbody tr').on('mouseenter', function () {
+                $(this).addClass('fila-destacada');
+            }).on('mouseleave', function () {
+                $(this).removeClass('fila-destacada');
+            });
+
+            /* -----------------------------------------------
+             * EFECTO DE CLICK en filas → resaltar permanente
+             * .siblings() → hermanos del elemento en el DOM
+             * ----------------------------------------------- */
+            $('#tabla-comparativa tbody tr').on('click', function () {
+                // Quitar selección de todos los hermanos
+                $(this).siblings().css('font-weight', '');
+                // Alternar el peso de la fuente en el clickeado
+                if ($(this).data('seleccionado')) {
+                    $(this).css('font-weight', '').data('seleccionado', false);
+                } else {
+                    $(this).css('font-weight', 'bold').data('seleccionado', true);
+                }
+            });
+
+        });
+    </script>
+
+</body>
 </html>

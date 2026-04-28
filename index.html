@@ -2,138 +2,498 @@
 <html lang="es">
 
 <head>
+    
     <meta charset="UTF-8">
-    <title>Turismo - Jujuy</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TurismoWeb Jujuy — Inicio</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/sprites.css">
 </head>
 
 <body>
 
-    <header class="encabezado-principal">
-        <div class="logo">
-            <h1>TurismoWeb</h1>
-        </div>
+    <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+        <div class="container">
 
-        <nav class="menu-navegacion">
-            <ul class="lista-menu">
-                <li class="item-menu"><a href="index.html">Inicio</a></li>
-                <li class="item-menu"><a href="destinos.html">Destinos</a></li>
-                <li class="item-menu"><a href="agencias.html">Agencias</a></li>
-                <li class="item-menu"><a href="precios.html">Precios</a></li>
-                <li class="item-menu"><a href="blog.html">Blog</a></li>
-                <li class="item-menu"><a href="contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
+            <a class="navbar-brand text-white fw-bold" href="index.html">
+                <i class="bi bi-compass-fill text-warning me-1"></i>TurismoWeb
+            </a>
 
-    <main>
+            <button class="navbar-toggler border-0" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
+                    aria-controls="menuPrincipal" aria-expanded="false"
+                    aria-label="Abrir menú">
+                <i class="bi bi-list text-white fs-2"></i>
+            </button>
 
-        <section class="hero">
-            <video autoplay loop muted playsinline class="video-fondo">
-                <source src="assets/video.mp4" type="video/mp4">
-                Tu navegador no soporta la etiqueta de video.
-            </video>
+            <div class="collapse navbar-collapse" id="menuPrincipal">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
 
-            <div class="hero-overlay">
-                <h2 class="titulo-hero">Descubre la Magia de Jujuy</h2>
-                <p>Naturaleza, cultura y colores inolvidables te esperan.</p>
-                <a href="destinos.html" class="boton-primario">Explorar Destinos</a>
-            </div>
-        </section>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="bi bi-house-door me-1"></i>Inicio
+                        </a>
+                    </li>
 
-        <section class="destinos">
+                    <li class="nav-item dropdown mega-dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-map me-1"></i>Destinos
+                        </a>
+                        
+                        <div class="dropdown-menu mega-menu shadow-lg">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <p class="mega-titulo">
+                                            <i class="bi bi-funnel me-1"></i>Por Categoría
+                                        </p>
+                                        <a class="dropdown-item" href="destinos.html">
+                                            <i class="bi bi-grid me-2 text-warning"></i>Todos los destinos
+                                        </a>
+                                        <a class="dropdown-item" href="destinos.html?filtro=cultural">
+                                            <i class="bi bi-building me-2 text-primary"></i>Cultura e Historia
+                                        </a>
+                                        <a class="dropdown-item" href="destinos.html?filtro=naturaleza">
+                                            <i class="bi bi-tree me-2 text-success"></i>Naturaleza Pura
+                                        </a>
+                                        <a class="dropdown-item" href="destinos.html?filtro=aventura">
+                                            <i class="bi bi-activity me-2 text-danger"></i>Aventura
+                                        </a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p class="mega-titulo">
+                                            <i class="bi bi-geo-alt me-1"></i>Por Región
+                                        </p>
+                                        <a class="dropdown-item" href="destinos.html">
+                                            <i class="bi bi-pin-map me-2"></i>Quebrada de Humahuaca
+                                        </a>
+                                        <a class="dropdown-item" href="destinos.html">
+                                            <i class="bi bi-pin-map me-2"></i>La Puna Jujeña
+                                        </a>
+                                        <a class="dropdown-item" href="destinos.html">
+                                            <i class="bi bi-pin-map me-2"></i>Valles Subtropicales
+                                        </a>
+                                    </div>
+                                    <div class="col-md-4 d-none d-md-block">
+                                        <p class="mega-titulo">
+                                            <i class="bi bi-star me-1"></i>Destacados
+                                        </p>
+                                        <a class="dropdown-item" href="destinos.html">
+                                            <i class="bi bi-award me-2 text-warning"></i>Purmamarca
+                                        </a>
+                                        <a class="dropdown-item" href="destinos.html">
+                                            <i class="bi bi-award me-2 text-warning"></i>Salinas Grandes
+                                        </a>
+                                        <a class="dropdown-item" href="agencias.html">
+                                            <i class="bi bi-building-check me-2"></i>Ver Agencias
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
 
-            <h2>Destinos Destacados</h2>
+                    <li class="nav-item">
+                        <a class="nav-link" href="agencias.html">
+                            <i class="fa-solid fa-building-user me-1"></i>Agencias
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="precios.html">
+                            <i class="fa-solid fa-tags me-1"></i>Precios
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">
+                            <i class="bi bi-journal-text me-1"></i>Blog
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">
+                            <i class="bi bi-envelope me-1"></i>Contacto
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-warning btn-sm text-dark px-3 fw-bold" href="phishing.html">
+                            <i class="bi bi-shield-exclamation me-1"></i>Seguridad
+                        </a>
+                    </li>
 
-            <p class="contador-simple">¡Más de 500+ visitantes este mes!</p>
-
-            <div class="caja-tarjetas">
-
-                <article class="tarjeta-simple">
-                    <h3>Purmamarca</h3>
-                    <p>Conoce el Cerro de los 7 Colores.</p>
-                </article>
-
-                <article class="tarjeta-simple">
-                    <h3>Salinas Grandes</h3>
-                    <p>Un increíble desierto de sal blanco.</p>
-                </article>
-
-                <article class="tarjeta-simple">
-                    <h3>Pucará de Tilcara</h3>
-                    <p>Ruinas arqueológicas llenas de historia.</p>
-                </article>
-
-            </div>
-
-        </section>
-
-        <section class="testimonios">
-
-            <h2>Lo que dicen nuestros viajeros</h2>
-
-            <div class="carrusel-simple">
-
-                <div class="tarjeta-testimonio">
-                    <p>"El viaje a Salinas Grandes fue increíble. ¡Recomendadísimo!"</p>
-                    <br>
-                    <b>- María G.</b>
-                </div>
-
-                <div class="tarjeta-testimonio">
-                    <p>"Quedé enamorado de Purmamarca. Definitivamente volveré."</p>
-                    <br>
-                    <b>- Carlos F.</b>
-                </div>
-
-                <div class="tarjeta-testimonio">
-                    <p>"La comida, la gente y los paisajes son inolvidables."</p>
-                    <br>
-                    <b>- Laura M.</b>
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-    <footer class="pie-pagina">
-
-        <div class="contenido-footer">
-
-            <div class="columna-footer">
-                <h3>Suscríbete al Newsletter</h3>
-                <form class="formulario-newsletter">
-                    <input type="email" placeholder="Ingresa tu correo" required>
-                    <button type="submit">Suscribirme</button>
-                </form>
-            </div>
-
-            <div class="columna-footer">
-                <h3>Síguenos</h3>
-                <ul class="redes-sociales">
-                    <li><a href="#">Facebook</a></li>
-                    <li><a href="#">Instagram</a></li>
-                    <li><a href="#">Twitter</a></li>
                 </ul>
             </div>
+        </div>
+    </nav>
 
-            <div class="columna-footer">
-                <h3>Nuestra Ubicación</h3>
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115865.71714909831!2d-65.372545!3d-24.1832629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941b08e2f80c6533%3A0xcb1b51de9580a8eb!2sSan%20Salvador%20de%20Jujuy%2C%20Jujuy!5e0!3m2!1ses-419!2sar!4v1700000000000!5m2!1ses-419!2sar"
-                    width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    <section class="hero">
+        
+        <video autoplay loop muted playsinline class="video-fondo">
+            <source src="assets/Video.mp4" type="video/mp4">
+            Tu navegador no soporta video HTML5.
+        </video>
+
+        <div class="hero-overlay">
+            <div class="hero-content text-center text-white">
+                
+                <h1 class="fw-bold mb-3" id="titulo-animado">
+                    Descubre la Magia de Jujuy
+                </h1>
+                <p class="lead mb-4" id="subtitulo-hero">
+                    Naturaleza, cultura y colores inolvidables te esperan.
+                </p>
+                <div class="d-flex gap-3 justify-content-center flex-wrap">
+                    <a href="destinos.html" class="btn btn-warning btn-lg fw-bold">
+                        <i class="bi bi-compass me-2"></i>Explorar Destinos
+                    </a>
+                    <a href="contacto.html" class="btn btn-outline-light btn-lg">
+                        <i class="bi bi-envelope me-2"></i>Contáctanos
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-warning-light">
+        <div class="container">
+            <div class="row text-center g-4">
+
+                <div class="col-6 col-md-3">
+                    <div class="contador-item">
+                        <i class="bi bi-people-fill display-5 text-warning d-block mb-2"></i>
+                        
+                        <div class="fs-1 fw-bold counter" data-target="5000">0</div>
+                        <p class="text-muted mb-0">Viajeros felices</p>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-3">
+                    <div class="contador-item">
+                        <i class="bi bi-geo-alt-fill display-5 text-warning d-block mb-2"></i>
+                        <div class="fs-1 fw-bold counter" data-target="35">0</div>
+                        <p class="text-muted mb-0">Destinos únicos</p>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-3">
+                    <div class="contador-item">
+                        <i class="bi bi-star-fill display-5 text-warning d-block mb-2"></i>
+                        <div class="fs-1 fw-bold counter" data-target="98">0</div>
+                        <p class="text-muted mb-0">% satisfacción</p>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-3">
+                    <div class="contador-item">
+                        <i class="bi bi-award-fill display-5 text-warning d-block mb-2"></i>
+                        <div class="fs-1 fw-bold counter" data-target="12">0</div>
+                        <p class="text-muted mb-0">Años de experiencia</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 seccion-titulo">
+                <i class="bi bi-pin-map-fill text-warning me-2"></i>Destinos Destacados
+            </h2>
+
+            <div class="row g-4">
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card card-destino h-100 shadow-sm">
+                        <img src="assets/pucara-tilcara.jpg" class="card-img-top" alt="Pucará de Tilcara">
+                        <div class="card-body">
+                            <span class="badge bg-primary mb-2">
+                                <i class="bi bi-building me-1"></i>Cultural
+                            </span>
+                            <h5 class="card-title fw-bold">Purmamarca</h5>
+                            <p class="card-text text-muted">
+                                Conocé el majestuoso Cerro de los 7 Colores, una maravilla geológica única en el mundo.
+                            </p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pb-3">
+                            <a href="destinos.html" class="btn btn-outline-warning w-100">
+                                Ver más <i class="bi bi-arrow-right ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card card-destino h-100 shadow-sm">
+                        <img src="assets/salinas-grandes.jpg" class="card-img-top" alt="Salinas Grandes">
+                        <div class="card-body">
+                            <span class="badge bg-success mb-2">
+                                <i class="bi bi-tree me-1"></i>Naturaleza
+                            </span>
+                            <h5 class="card-title fw-bold">Salinas Grandes</h5>
+                            <p class="card-text text-muted">
+                                Un desierto de sal blanco a 3.400 metros sobre el nivel del mar. Impresionante.
+                            </p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pb-3">
+                            <a href="destinos.html" class="btn btn-outline-warning w-100">
+                                Ver más <i class="bi bi-arrow-right ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card card-destino h-100 shadow-sm">
+                        <img src="assets/trekking.jpg" class="card-img-top" alt="Trekking">
+                        <div class="card-body">
+                            <span class="badge bg-danger mb-2">
+                                <i class="bi bi-activity me-1"></i>Aventura
+                            </span>
+                            <h5 class="card-title fw-bold">Trekking en el Cerro</h5>
+                            <p class="card-text text-muted">
+                                Rutas de montaña para todos los niveles con vistas espectaculares del altiplano.
+                            </p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pb-3">
+                            <a href="destinos.html" class="btn btn-outline-warning w-100">
+                                Ver más <i class="bi bi-arrow-right ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+    </section>
+
+    <section class="py-5 bg-dark text-white">
+        <div class="container">
+            <h2 class="text-center mb-5">
+                <i class="bi bi-chat-quote-fill text-warning me-2"></i>Lo que dicen nuestros viajeros
+            </h2>
+
+            <div id="carouselTestimonios" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselTestimonios" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#carouselTestimonios" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#carouselTestimonios" data-bs-slide-to="2"></button>
+                </div>
+
+                <div class="carousel-inner">
+
+                    <div class="carousel-item active">
+                        <div class="text-center py-4 px-5 mx-auto" style="max-width:700px">
+                            <i class="bi bi-quote display-3 text-warning opacity-50 d-block mb-3"></i>
+                            <p class="lead fst-italic mb-3">
+                                "El viaje a Salinas Grandes fue increíble. Los colores, la altura, el silencio… ¡Absolutamente recomendable!"
+                            </p>
+                            <p class="fw-bold mb-1">— María G.</p>
+                            <span class="text-warning fs-5">★★★★★</span>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="text-center py-4 px-5 mx-auto" style="max-width:700px">
+                            <i class="bi bi-quote display-3 text-warning opacity-50 d-block mb-3"></i>
+                            <p class="lead fst-italic mb-3">
+                                "Quedé enamorado de Purmamarca. El Cerro de los 7 Colores al amanecer es mágico. Definitivamente volveré."
+                            </p>
+                            <p class="fw-bold mb-1">— Carlos F.</p>
+                            <span class="text-warning fs-5">★★★★★</span>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="text-center py-4 px-5 mx-auto" style="max-width:700px">
+                            <i class="bi bi-quote display-3 text-warning opacity-50 d-block mb-3"></i>
+                            <p class="lead fst-italic mb-3">
+                                "La comida, la gente y los paisajes son inolvidables. TurismoWeb organizó todo a la perfección."
+                            </p>
+                            <p class="fw-bold mb-1">— Laura M.</p>
+                            <span class="text-warning fs-5">★★★★☆</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <button class="carousel-control-prev" type="button"
+                        data-bs-target="#carouselTestimonios" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button"
+                        data-bs-target="#carouselTestimonios" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                    <span class="visually-hidden">Siguiente</span>
+                </button>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-footer text-white pt-5 pb-3">
+        <div class="container">
+            <div class="row g-5 mb-4">
+
+                <div class="col-12 col-md-4">
+                    <h5 class="text-warning fw-bold mb-3">
+                        <i class="bi bi-envelope-heart me-2"></i>Newsletter
+                    </h5>
+                    <p class="text-white-50 small">Recibí ofertas y novedades de Jujuy directamente en tu correo.</p>
+                    <form id="form-newsletter" class="d-flex gap-2" novalidate>
+                        <input type="email" id="email-newsletter"
+                               class="form-control form-control-sm"
+                               placeholder="tu@correo.com"
+                               required>
+                        <button type="submit" class="btn btn-warning btn-sm px-3">
+                            <i class="bi bi-send-fill"></i>
+                        </button>
+                    </form>
+                    <small id="msg-newsletter" class="text-success mt-2 d-none">
+                        <i class="bi bi-check-circle me-1"></i>¡Suscrito correctamente!
+                    </small>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <h5 class="text-warning fw-bold mb-3">
+                        <i class="bi bi-share me-2"></i>Síguenos
+                    </h5>
+                    <p class="text-white-50 small mb-3">¡Seguinos en redes y enterate de todo!</p>
+                    
+                    <div class="d-flex gap-3">
+                        <a href="#" class="sprite-icon sprite-facebook" title="Facebook" aria-label="Facebook"></a>
+                        <a href="#" class="sprite-icon sprite-instagram" title="Instagram" aria-label="Instagram"></a>
+                        <a href="#" class="sprite-icon sprite-twitter" title="Twitter / X" aria-label="Twitter"></a>
+                        <a href="contacto.html" class="sprite-icon sprite-email" title="Email" aria-label="Email"></a>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <h5 class="text-warning fw-bold mb-3">
+                        <i class="bi bi-geo-alt me-2"></i>Nuestra Ubicación
+                    </h5>
+                    
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115865.71714909831!2d-65.372545!3d-24.1832629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941b08e2f80c6533%3A0xcb1b51de9580a8eb!2sSan%20Salvador%20de%20Jujuy%2C%20Jujuy!5e0!3m2!1ses-419!2sar!4v1700000000000!5m2!1ses-419!2sar"
+                        class="w-100 rounded" height="180"
+                        style="border:0;" allowfullscreen loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
             </div>
 
-        </div>
+            <hr class="border-secondary">
 
-        <div class="derechos-autor">
-            <p>&copy; 2026 TurismoWeb Jujuy - APU. Todos los derechos reservados.</p>
+            <p class="text-center text-white-50 mb-0 small">
+                &copy; 2026 TurismoWeb Jujuy &mdash; Facultad de Ingeniería, UNJu.
+                Todos los derechos reservados.
+            </p>
         </div>
-
     </footer>
 
-</body>
+    <button id="btn-top" class="btn btn-warning rounded-circle shadow"
+            style="display:none; position:fixed; bottom:25px; right:25px; width:48px; height:48px; z-index:999;"
+            title="Volver arriba">
+        <i class="bi bi-arrow-up-short fs-4"></i>
+    </button>
 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="js/main.js"></script>
+
+    <script>
+        $(function () {
+
+            /* -----------------------------------------------
+             * TEXTO ANIMADO en el Hero (jQuery)
+             * .fadeOut() → desvanece el elemento
+             * .text()    → cambia el texto
+             * .fadeIn()  → lo vuelve a mostrar
+             * setInterval() → ejecuta cada N milisegundos
+             * ----------------------------------------------- */
+            const frases = [
+                "Descubre la Magia de Jujuy",
+                "Colores, Cultura y Aventura",
+                "Tu Próximo Destino te Espera",
+                "Jujuy: Patrimonio de la Humanidad"
+            ];
+            let indiceFrase = 0;
+
+            setInterval(function () {
+                indiceFrase = (indiceFrase + 1) % frases.length;
+
+                // Anidamos fadeIn dentro del callback de fadeOut
+                // para que se ejecute DESPUÉS de que termine el fade out
+                $('#titulo-animado').fadeOut(500, function () {
+                    $(this).text(frases[indiceFrase]).fadeIn(500);
+                });
+            }, 3500);
+
+            /* -----------------------------------------------
+             * CONTADOR ANIMADO (jQuery)
+             * $({ count: 0 }).animate() → anima un objeto JS
+             * .each() → itera sobre todos los elementos .counter
+             * data-target → valor final del contador
+             * ----------------------------------------------- */
+            let contadoresIniciados = false;
+
+            function animarContadores() {
+                $('.counter').each(function () {
+                    const $el = $(this);
+                    const target = parseInt($el.data('target'));
+
+                    // .animate() de jQuery puede animar propiedades de objetos JS, no solo CSS
+                    $({ valorActual: 0 }).animate(
+                        { valorActual: target },
+                        {
+                            duration: 2000,        // 2 segundos
+                            easing: 'swing',       // curva de animación
+                            step: function () {    // se ejecuta en cada frame
+                                $el.text(Math.floor(this.valorActual));
+                            },
+                            complete: function () { // al terminar, pone el valor exacto
+                                $el.text(target);
+                            }
+                        }
+                    );
+                });
+            }
+
+            // Detectar scroll para iniciar los contadores cuando sean visibles
+            $(window).on('scroll.contadores', function () {
+                if (contadoresIniciados) return;
+
+                const primeraSeccion = $('.counter').first();
+                // offset().top → posición Y del elemento en la página
+                // scrollTop() → cuánto ha scrolleado el usuario
+                // height() → altura de la ventana del navegador
+                if (primeraSeccion.length &&
+                    primeraSeccion.offset().top < $(window).scrollTop() + $(window).height() - 80) {
+                    contadoresIniciados = true;
+                    animarContadores();
+                    $(window).off('scroll.contadores'); // Dejar de escuchar para optimizar
+                }
+            });
+
+            // También verificar al cargar si ya son visibles (sin scroll)
+            $(window).trigger('scroll.contadores');
+
+        });
+    </script>
+
+</body>
 </html>
